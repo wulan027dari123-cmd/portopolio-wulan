@@ -176,11 +176,11 @@
       font-size: 1.2rem;
     }
 
-    /* BERANDA */
+    /* BERANDA / HERO SECTION */
 
     .hero {
       position: relative;
-      min-height: 680px;
+      min-height: 700px;
       padding: 82px 0 70px;
       overflow: hidden;
       background:
@@ -303,10 +303,40 @@
       color: var(--green);
     }
 
-    /* ILUSTRASI FOTO DAN STIKER */
+    /* POP STIKER RAME DI BERANDA */
+    .hero-pop-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .hero-pop-chip {
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--yellow);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-pop-chip:hover {
+      transform: scale(1.1) rotate(-3deg);
+      box-shadow: 5px 5px 0 var(--red);
+      background: #fff;
+    }
+
+    /* ILUSTRASI FOTO DAN STIKER POP ATAS */
 
     .hero-art {
-      min-height: 450px;
+      min-height: 480px;
       position: relative;
       display: grid;
       place-items: center;
@@ -388,42 +418,56 @@
       font-weight: 800;
     }
 
+    /* POP STIKER MELAYANG DI BERANDA */
     .sticker {
       position: absolute;
       z-index: 5;
       display: grid;
       place-items: center;
-      box-shadow: var(--shadow);
+      box-shadow: 4px 4px 0 var(--ink);
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      border-radius: 18px;
+      padding: 8px 12px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background 0.3s ease;
       animation: float 4s ease-in-out infinite;
     }
 
+    .sticker:hover {
+      transform: scale(1.25) rotate(-6deg) !important;
+      box-shadow: 6px 6px 0 var(--red);
+    }
+
     .sticker-tulip {
-      font-size: 2.8rem;
-      top: 42px;
-      left: 8%;
+      font-size: 2.2rem;
+      top: 25px;
+      left: 5%;
+      border-radius: 50%;
+      width: 58px;
+      height: 58px;
+      padding: 0;
       transform: rotate(-13deg);
+      background: var(--pink);
     }
 
     .sticker-star {
-      width: 66px;
-      height: 66px;
+      width: 56px;
+      height: 56px;
       background: var(--yellow);
       border-radius: 50%;
       right: 2%;
-      top: 90px;
-      font-size: 2rem;
+      top: 70px;
+      font-size: 1.6rem;
+      padding: 0;
       animation-delay: -1.5s;
     }
 
     .sticker-note {
-      right: 0;
-      bottom: 50px;
-      background: var(--paper);
-      border: 2px solid var(--ink);
-      padding: 12px 16px;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: .82rem;
+      right: -10px;
+      bottom: 60px;
       transform: rotate(7deg);
       animation-delay: -2s;
     }
@@ -431,7 +475,24 @@
     .sticker-note span {
       display: block;
       color: var(--red);
-      font-size: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .sticker-music {
+      left: 2%;
+      bottom: 40px;
+      transform: rotate(-8deg);
+      background: var(--mint);
+      animation-delay: -3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sticker-music.playing {
+      background: var(--pink) !important;
+      box-shadow: 4px 4px 0 var(--red) !important;
+      animation: pulse 1.5s infinite alternate !important;
     }
 
     .flower {
@@ -796,6 +857,7 @@
     }
 
     .project-link:hover { color: var(--red); }
+
     /* PENDIDIKAN */
 
     .education {
@@ -931,7 +993,77 @@
       margin: 0 5px;
     }
 
-    /* ANIMASI SCROLL */
+    /* FLOATING POP ICONS RAME DI POJOK KANAN BAWAH */
+    .pop-icons-wrapper {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .pop-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 3px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--red);
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      color: var(--ink);
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+      animation: floatPop 3s ease-in-out infinite;
+    }
+
+    .pop-icon:nth-child(1) { animation-delay: 0s; }
+    .pop-icon:nth-child(2) { animation-delay: 0.3s; }
+    .pop-icon:nth-child(3) { animation-delay: 0.6s; }
+    .pop-icon:nth-child(4) { animation-delay: 0.9s; }
+    .pop-icon:nth-child(5) { animation-delay: 1.2s; }
+
+    .pop-icon:hover {
+      transform: scale(1.25) rotate(-8deg);
+      box-shadow: 6px 6px 0 var(--yellow);
+      background: #fff;
+    }
+
+    .pop-icon:active {
+      transform: scale(0.95) translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--yellow);
+    }
+
+    .pop-icon::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      right: 68px;
+      top: 50%;
+      transform: translateY(-50%) scale(0.7);
+      opacity: 0;
+      pointer-events: none;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      white-space: nowrap;
+      box-shadow: 3px 3px 0 var(--yellow);
+      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .pop-icon:hover::after {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+
+    /* ANIMASI SCROLL & BOUNCE */
 
     .reveal {
       opacity: 0;
@@ -947,6 +1079,11 @@
     .reveal.delay-1 { transition-delay: .12s; }
     .reveal.delay-2 { transition-delay: .24s; }
     .reveal.delay-3 { transition-delay: .36s; }
+
+    @keyframes floatPop {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
 
     @keyframes float {
       0%, 100% { translate: 0 0; }
@@ -1043,6 +1180,18 @@
       .contact-card::before,
       .contact-card::after { font-size: 4rem; }
       .ticker { margin-bottom: 0; }
+
+      .pop-icons-wrapper {
+        bottom: 18px;
+        right: 18px;
+        gap: 8px;
+      }
+      .pop-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.15rem;
+        box-shadow: 3px 3px 0 var(--red);
+      }
     }
 
     @media (max-width: 420px) {
@@ -1055,22 +1204,6 @@
       .hero h1 { letter-spacing: -1.5px; }
       .btn { width: 100%; }
       .hero-buttons { max-width: 330px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
     }
   </style>
 </head>
@@ -1102,7 +1235,7 @@
   </header>
 
   <main>
-    <!-- BERANDA -->
+    <!-- BERANDA DENGAN POP ICON & STIKER RAME -->
     <section class="hero" id="home">
       <div class="floating-petals" id="petals" aria-hidden="true"></div>
 
@@ -1114,15 +1247,23 @@
         <div class="hero-text reveal">
           <div class="eyebrow">
             <span class="dot"></span>
-            Halo, selamat datang di dunia kecilku!
+            Halo, selamat datang di dunia kecilku! ✨
           </div>
 
-          <h1>Hai, saya <span class="name">Wulan</span> 🌷<br>calon kreator digital.</h1>
+          <h1>Hai, saya <span class="name">Wulan</span> 🌷<br>kreator digital.</h1>
 
           <p class="hero-copy">
             saya pelajar Rekayasa Perangkat Lunak yang suka belajar membuat website,
             mencoba hal baru, dan mengubah ide sederhana menjadi karya digital yang menarik.
           </p>
+
+          <!-- POP CHIPS / BADGE STIKER INTERAKTIF SAGE RAME -->
+          <div class="hero-pop-tags">
+            <span class="hero-pop-chip">💻 Web Dev</span>
+            <span class="hero-pop-chip">🎨 Design Enthusiast</span>
+            <span class="hero-pop-chip">✨ RPL Student</span>
+            <span class="hero-pop-chip">🌸 Creative Mind</span>
+          </div>
 
           <div class="hero-buttons">
             <a class="btn btn-primary" href="#projects">Lihat Proyekku <span>↗</span></a>
@@ -1147,12 +1288,24 @@
             </div>
           </div>
 
-          <div class="sticker sticker-tulip">🌷</div>
-          <div class="sticker sticker-star">✦</div>
+          <!-- POP STIKER BERANDA MELAYANG ESTETIK -->
+          <div class="sticker sticker-tulip" title="Tulip Pink">🌷</div>
+          <div class="sticker sticker-star" title="Sparkle Star">✦</div>
           <div class="sticker sticker-note">
             currently learning
             <span>HTML • CSS • PHP</span>
           </div>
+
+          <!-- STIKER MUSIK INTERAKTIF PLAY/PAUSE -->
+          <div class="sticker sticker-music" id="musicBtn" title="Klik untuk putar musik">
+            <span id="musicIcon">🎵</span> <span id="musicText">Dewa 19 - Kangen</span>
+          </div>
+
+          <!-- ELEMEN AUDIO MEMANGGIL FILE MP4 AUDIO DARI FOLDER -->
+          <audio id="bgMusic" loop preload="auto">
+            <source src="WhatsApp Audio 2026-11-07 at 09.32.09.mp4" type="audio/mp4">
+            Browser kamu tidak mendukung pemutar audio.
+          </audio>
         </div>
       </div>
     </section>
@@ -1351,47 +1504,46 @@
       </div>
     </section>
 
-    
-<!-- PENGALAMAN PKL -->
-<section id="experience">
-  <div class="container">
-    <div class="section-heading reveal">
-      <div class="kicker">My Internship Journey</div>
-      <h2>Pengalaman <span>PKL-ku</span></h2>
-      <p>Belajar dan berkembang melalui pengalaman langsung di dunia kerja.</p>
-    </div>
+    <!-- PENGALAMAN PKL -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="kicker">My Internship Journey</div>
+          <h2>Pengalaman <span>PKL-ku</span></h2>
+          <p>Belajar dan berkembang melalui pengalaman langsung di dunia kerja.</p>
+        </div>
 
-    <div class="timeline">
-      <div class="timeline-item reveal">
-        <span class="timeline-dot"></span>
-        <div class="timeline-card">
-          <small>Praktik Kerja Lapangan (PKL)</small>
-          <h3>Access Media Tasikmalaya</h3>
-          <p>
-            Saya mendapatkan pengalaman Praktik Kerja Lapangan (PKL)
-            di Access Media Tasikmalaya. Selama kegiatan PKL, saya
-            belajar mengenal lingkungan kerja secara langsung,
-            meningkatkan kedisiplinan, tanggung jawab, serta kemampuan
-            berkomunikasi dan bekerja sama.
-          </p>
-          <p>
-            Salah satu pengalaman saya adalah membuat desain profil
-            perusahaan menggunakan Canva sebagai media informasi
-            dan presentasi perusahaan. Pengalaman ini membantu saya
-            mengembangkan kreativitas, keterampilan desain digital,
-            dan kepercayaan diri saat mempresentasikan hasil karya.
-          </p>
-          <div class="info-pills">
-            <span class="pill">💼 Pengalaman PKL</span>
-            <span class="pill">🎨 Canva</span>
-            <span class="pill">🤝 Komunikasi</span>
-            <span class="pill">💡 Kreativitas</span>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <div class="timeline-card">
+              <small>Praktik Kerja Lapangan (PKL)</small>
+              <h3>Access Media Tasikmalaya</h3>
+              <p>
+                Saya mendapatkan pengalaman Praktik Kerja Lapangan (PKL)
+                di Access Media Tasikmalaya. Selama kegiatan PKL, saya
+                belajar mengenal lingkungan kerja secara langsung,
+                meningkatkan kedisiplinan, tanggung jawab, serta kemampuan
+                berkomunikasi dan bekerja sama.
+              </p>
+              <p>
+                Salah satu pengalaman saya adalah membuat desain profil
+                perusahaan menggunakan Canva sebagai media informasi
+                dan presentasi perusahaan. Pengalaman ini membantu saya
+                mengembangkan kreativitas, keterampilan desain digital,
+                dan kepercayaan diri saat mempresentasikan hasil karya.
+              </p>
+              <div class="info-pills">
+                <span class="pill">💼 Pengalaman PKL</span>
+                <span class="pill">🎨 Canva</span>
+                <span class="pill">🤝 Komunikasi</span>
+                <span class="pill">💡 Kreativitas</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- KONTAK -->
     <section id="contact">
@@ -1415,6 +1567,25 @@
       <span id="year"></span>
     </div>
   </footer>
+
+  <!-- FLOATING POP ICONS PINTASAN RAME DI POJOK BAWAH -->
+  <div class="pop-icons-wrapper" aria-label="Pintasan Media Sosial">
+    <a href="https://wa.me/6283191552752" target="_blank" rel="noopener noreferrer" class="pop-icon" data-tooltip="WhatsApp 💬">
+      💬
+    </a>
+    <a href="https://www.instagram.com/wwln_16?rpxt=MTRiMHNtcWpjczBo" target="_blank" rel="noopener noreferrer" class="pop-icon" data-tooltip="Instagram 📸">
+      📸
+    </a>
+    <a href="https://youtube.com/@wulandari-pu4do?si=sEzvUH8Df5AMElTK" target="_blank" rel="noopener noreferrer" class="pop-icon" data-tooltip="YouTube 📹">
+      📹
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61593825338549" target="_blank" rel="noopener noreferrer" class="pop-icon" data-tooltip="Facebook 🌐">
+      🌐
+    </a>
+    <a href="#home" class="pop-icon" data-tooltip="Ke Atas 🚀">
+      🚀
+    </a>
+  </div>
 
   <script>
     // Menu navigasi untuk layar HP
@@ -1482,6 +1653,28 @@
       petal.style.fontSize = (12 + Math.random() * 15) + 'px';
 
       petals.appendChild(petal);
+    }
+
+    // FITUR INTERAKTIF PUTAR / PAUSE MUSIK DENGAN STIKER
+    const musicBtn = document.getElementById('musicBtn');
+    const bgMusic = document.getElementById('bgMusic');
+    const musicIcon = document.getElementById('musicIcon');
+    const musicText = document.getElementById('musicText');
+
+    if (musicBtn && bgMusic) {
+      musicBtn.addEventListener('click', () => {
+        if (bgMusic.paused) {
+          bgMusic.play();
+          musicIcon.textContent = '🔊';
+          musicText.textContent = 'Playing: Dewa 19 - Kangen';
+          musicBtn.classList.add('playing');
+        } else {
+          bgMusic.pause();
+          musicIcon.textContent = '🎵';
+          musicText.textContent = 'Dewa 19 - Kangen';
+          musicBtn.classList.remove('playing');
+        }
+      });
     }
 
     // Tahun otomatis di footer
