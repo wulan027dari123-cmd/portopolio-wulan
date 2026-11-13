@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#4a3525">
-  <meta name="description" content="Portofolio Wulan Maharani - Brown Vintage Scrapbook Portfolio.">
+  <meta name="theme-color" content="#241a14">
+  <meta name="description" content="Portofolio Wulan Maharani - Dark Academia Vintage Scrapbook Portfolio.">
   <title id="pageTitle">Wulan Maharani — Portfolio</title>
 
   <!-- Favicon Jurnal Inisial W -->
@@ -12,11 +12,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-brown: #3e2d20;
+      --bg-brown: #2a1d15;
       --bg-cream: #f4ecdf;
       --book-page: #fbf7f0;
       --page-line: #e6dec9;
@@ -25,8 +25,8 @@
       --accent-brown: #6b4c35;
       --accent-soft: #ebdccf;
       --tape-yellow: rgba(234, 212, 138, 0.85);
-      --cork-bg: #8c5830;
-      --shadow-book: 0 15px 35px rgba(0, 0, 0, 0.35);
+      --cork-bg: #7a4928;
+      --shadow-book: 0 18px 40px rgba(0, 0, 0, 0.45);
     }
 
     * {
@@ -54,17 +54,16 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 1000;
-      width: min(700px, 92%);
+      width: min(720px, 92%);
       background: rgba(249, 244, 238, 0.95);
       border: 1px solid #dcd0be;
       border-radius: 30px;
       backdrop-filter: blur(8px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
     nav {
-      height: 50px;
+      height: 52px;
       padding: 0 20px;
       display: flex;
       align-items: center;
@@ -99,7 +98,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       list-style: none;
     }
 
@@ -115,35 +114,61 @@
       transform: translateY(-1px);
     }
 
-    /* TOMBOL TRANSLATE DENGAN INDIKATOR WARNA */
-    .lang-btn {
-      background: var(--accent-soft);
-      border: 1px solid #dcd0be;
-      color: var(--accent-brown);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 5px 12px;
-      border-radius: 14px;
+    /* GAYA TOMBOL TOGGLE SWITCH (ON/OFF STYLE) UNTUK ID / EN */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: #e6dfd3;
+      border: 1px solid #c7b9a5;
+      padding: 3px;
+      border-radius: 20px;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .lang-btn:hover { transform: scale(1.05); }
-    
-    .lang-btn.mode-id {
-      background-color: #6b4c35;
-      color: white;
-      border-color: #4a3525;
-      box-shadow: 0 2px 8px rgba(107, 76, 53, 0.4);
+      position: relative;
+      width: 72px;
+      height: 28px;
+      transition: background 0.3s ease;
     }
 
-    .lang-btn.mode-en {
-      background-color: #b5651d;
-      color: white;
-      border-color: #8c4a12;
-      box-shadow: 0 2px 8px rgba(181, 101, 29, 0.4);
+    .lang-switch .switch-handle {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 33px;
+      height: 20px;
+      background: var(--accent-brown);
+      border-radius: 14px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* HAMBURGER MENU MOBILE */
+    .lang-switch.en .switch-handle {
+      transform: translateX(33px);
+      background: #b5651d;
+    }
+
+    .lang-labels {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 7px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      z-index: 2;
+      color: #6e5c4f;
+      user-select: none;
+    }
+
+    .lang-labels span.active {
+      color: white;
+    }
+
+    /* KELOMPOK AKSI KANAN (MOBILE) */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .menu-btn {
       display: none;
       background: none;
@@ -155,15 +180,44 @@
     }
     .menu-btn:active { transform: rotate(90deg); }
 
+    /* ==========================================================
+       STIKER DARK ACADEMIA & VINTAGE BROWN
+       ========================================================== */
+    .sticker {
+      position: absolute;
+      z-index: 20;
+      pointer-events: none;
+      filter: drop-shadow(0 6px 10px rgba(36, 22, 12, 0.28));
+      transition: transform 0.3s ease;
+    }
+    .journal-book:hover .sticker {
+      transform: scale(1.05) rotate(0deg);
+    }
+
+    .sticker-label-pill {
+      top: -16px; left: 55px; background: #6e472b; color: #f7efe5;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      padding: 6px 18px; border-radius: 20px; border: 2px solid #f7efe5; transform: rotate(-2deg);
+    }
+    .sticker-ribbon { top: -22px; right: -18px; width: 68px; height: 68px; transform: rotate(12deg); }
+    .sticker-leaf { bottom: -24px; left: -20px; width: 65px; height: 65px; transform: rotate(-18deg); }
+    .sticker-wax { top: -20px; right: 30px; width: 64px; height: 64px; transform: rotate(8deg); }
+    .sticker-spell {
+      bottom: -18px; right: 35px; background: #4e3322; color: #f3e8d8;
+      font-family: 'Playfair Display', serif; font-size: 0.75rem; font-weight: 700;
+      padding: 6px 14px; border-radius: 8px; border: 1.5px dashed #d4bfa4; transform: rotate(-4deg);
+    }
+    .sticker-camera { top: -26px; right: 28px; width: 78px; height: 64px; transform: rotate(10deg); }
+    .sticker-coffee { bottom: -25px; left: 35px; width: 64px; height: 64px; transform: rotate(-10deg); }
+    .sticker-books { top: -32px; right: 20px; width: 82px; height: 75px; transform: rotate(4deg); }
+    .sticker-bear { bottom: -22px; right: 25px; width: 82px; height: 88px; transform: rotate(-6deg); }
+    .sticker-butterfly { top: -26px; left: 25px; width: 72px; height: 62px; transform: rotate(-14deg); }
+
     /* SECTION FULL SCREEN LAYOUT */
     .journal-section {
-      min-height: 100vh;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 90px 20px 40px;
-      position: relative;
+      min-height: 100vh; width: 100%;
+      display: flex; align-items: center; justify-content: center;
+      padding: 90px 20px 40px; position: relative;
     }
 
     .bg-brown-grid {
@@ -181,7 +235,6 @@
       color: #362a22;
     }
 
-    /* BUKU JURNAL UTAMA DENGAN ANIMASI FADE-IN SCROLL */
     .journal-book {
       background-color: var(--book-page);
       background-image: repeating-linear-gradient(transparent, transparent 31px, var(--page-line) 31px, var(--page-line) 32px);
@@ -192,75 +245,37 @@
       width: min(850px, 95%);
       padding: 50px 60px;
       position: relative;
-      
-      /* Animasi Masuk */
-      opacity: 0;
-      transform: translateY(30px);
+      opacity: 0; transform: translateY(30px);
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .journal-book.appear {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .journal-book.appear { opacity: 1; transform: translateY(0); }
 
     .journal-book::before {
-      content: '';
-      position: absolute;
-      left: 18px;
-      top: 30px;
-      bottom: 30px;
-      width: 12px;
+      content: ''; position: absolute; left: 18px; top: 30px; bottom: 30px; width: 12px;
       background: repeating-linear-gradient(to bottom, #555, #555 6px, #bbb 6px, #bbb 12px, #222 12px, #222 14px);
       border-radius: 4px;
     }
 
-    /* JUDUL SECTION */
     .section-header { margin-bottom: 24px; }
     .section-num { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
     .section-title { font-family: 'Caveat', cursive; font-size: 2.5rem; color: var(--accent-brown); line-height: 1.1; }
 
-    /* HERO GRID */
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 30px;
-      align-items: center;
-    }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; align-items: center; }
 
-    h1 {
-      font-family: 'Caveat', cursive;
-      font-size: clamp(2.8rem, 4.5vw, 3.8rem);
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 12px;
-    }
-    h1 .name {
-      color: var(--accent-brown);
-      border-bottom: 2px dashed var(--accent-brown);
-    }
+    h1 { font-family: 'Caveat', cursive; font-size: clamp(2.8rem, 4.5vw, 3.8rem); font-weight: 700; line-height: 1.1; margin-bottom: 12px; }
+    h1 .name { color: var(--accent-brown); border-bottom: 2px dashed var(--accent-brown); }
     .hero-copy { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px; }
     .hero-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
     .tag-chip {
-      font-size: 0.76rem;
-      font-weight: 600;
-      background: white;
-      border: 1px solid #dcd0be;
-      padding: 4px 10px;
-      border-radius: 6px;
-      transition: transform 0.2s, background 0.2s;
+      font-size: 0.76rem; font-weight: 600; background: white; border: 1px solid #dcd0be;
+      padding: 4px 10px; border-radius: 6px; transition: transform 0.2s, background 0.2s;
     }
     .tag-chip:hover { transform: translateY(-2px); background: var(--accent-soft); }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-size: 0.84rem;
-      font-weight: 600;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 10px 18px; border-radius: 8px; font-size: 0.84rem; font-weight: 600;
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .btn-primary { background: var(--accent-brown); color: white; border: 1px solid var(--accent-brown); }
@@ -268,136 +283,65 @@
     .btn-secondary { background: white; color: var(--text-main); border: 1px solid #dcd0be; }
     .btn-secondary:hover { transform: translateY(-3px); background: #faf4eb; }
 
-    /* POLAROID DENGAN ANIMASI HOVER */
     .polaroid-frame {
-      background: white;
-      padding: 12px 12px 18px 12px;
-      border: 1px solid #dcd0be;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      transform: rotate(2deg);
-      max-width: 250px;
-      margin: 0 auto;
-      position: relative;
+      background: white; padding: 12px 12px 18px 12px; border: 1px solid #dcd0be;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08); transform: rotate(2deg); max-width: 250px; margin: 0 auto; position: relative;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .polaroid-frame:hover {
-      transform: rotate(0deg) scale(1.03);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-    .washi-tape {
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70px;
-      height: 20px;
-      background-color: var(--tape-yellow);
-      z-index: 10;
-    }
+    .polaroid-frame:hover { transform: rotate(0deg) scale(1.03); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+    .washi-tape { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); width: 70px; height: 20px; background-color: var(--tape-yellow); z-index: 10; }
     .polaroid-img { width: 100%; aspect-ratio: 4 / 4.2; background: #f4ecdf; overflow: hidden; margin-bottom: 10px; }
     .polaroid-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
     .polaroid-frame:hover .polaroid-img img { transform: scale(1.08); }
     .polaroid-caption { font-family: 'Caveat', cursive; font-size: 1.35rem; text-align: center; color: var(--accent-brown); }
 
-    /* TENTANG SAYA & STICKY NOTES */
-    .about-layout {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
-      align-items: start;
-    }
+    .about-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; align-items: start; }
     .quote-box {
-      background: white;
-      border: 1px solid #dcd0be;
-      padding: 24px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-      position: relative;
-      transition: transform 0.2s ease;
+      background: white; border: 1px solid #dcd0be; padding: 24px; border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03); position: relative; transition: transform 0.2s ease;
     }
     .quote-box:hover { transform: translateY(-2px); }
     .quote-box p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.7; }
     
     .sticky-notes-stack { display: flex; flex-direction: column; gap: 10px; }
     .sticky-note {
-      padding: 14px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-      position: relative;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      padding: 14px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08); position: relative; transition: transform 0.2s ease;
     }
-    .sticky-note:hover { transform: translateX(4px) scale(1.02); box-shadow: 0 5px 12px rgba(0,0,0,0.12); }
+    .sticky-note:hover { transform: translateX(4px) scale(1.02); }
     .note-brown { background: #f0e4d7; color: #422d1d; border-left: 4px solid #704c32; }
     .note-cream { background: #faf4eb; color: #4a3c31; border-left: 4px solid #9c8065; }
     .note-yellow { background: #fbf3d5; color: #4a401e; border-left: 4px solid #b3922d; }
 
-    /* KEAHLIAN / TOOLBOX */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .skill-card {
-      background: white;
-      border: 1px solid #dcd0be;
-      padding: 16px;
-      border-radius: 8px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.03);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background: white; border: 1px solid #dcd0be; padding: 16px; border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.03); transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .skill-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(107, 76, 53, 0.12);
-      border-color: var(--accent-brown);
-    }
+    .skill-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(107, 76, 53, 0.12); border-color: var(--accent-brown); }
     .skill-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--accent-brown); margin-bottom: 4px; }
     .skill-card p { font-size: 0.8rem; color: var(--text-muted); }
 
-    /* PAPAN PROYEK ALA CORKBOARD */
     .corkboard {
       background-color: var(--cork-bg);
-      background-image: radial-gradient(#6e4221 1px, transparent 1px);
+      background-image: radial-gradient(#522f18 1px, transparent 1px);
       background-size: 16px 16px;
-      border: 6px solid #4a2e18;
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: inset 0 5px 15px rgba(0,0,0,0.4);
+      border: 6px solid #3d2312; border-radius: 12px; padding: 24px;
+      box-shadow: inset 0 5px 15px rgba(0,0,0,0.45); position: relative;
     }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .project-card {
-      background: white;
-      border-radius: 6px;
-      overflow: hidden;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-      position: relative;
-      padding: 10px 10px 16px 10px;
-      transform: rotate(-1deg);
-      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+      background: white; border-radius: 6px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      position: relative; padding: 10px 10px 16px 10px; transform: rotate(-1deg);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     .project-card:nth-child(even) { transform: rotate(1deg); }
-    .project-card:hover {
-      transform: translateY(-6px) rotate(0deg) scale(1.02);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-      z-index: 5;
-    }
+    .project-card:hover { transform: translateY(-6px) rotate(0deg) scale(1.02); box-shadow: 0 12px 25px rgba(0,0,0,0.25); z-index: 5; }
     
     .pin {
-      position: absolute;
-      top: 4px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 12px;
-      height: 12px;
-      background: #a84242;
-      border-radius: 50%;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-      z-index: 10;
+      position: absolute; top: 4px; left: 50%; transform: translateX(-50%);
+      width: 12px; height: 12px; background: #8c3232; border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3); z-index: 10;
     }
 
     .project-visual { height: 110px; background: #eee; border-radius: 4px; overflow: hidden; margin-bottom: 10px; }
@@ -409,7 +353,6 @@
     .project-link { font-size: 0.78rem; font-weight: 600; color: var(--accent-brown); transition: opacity 0.2s; }
     .project-link:hover { opacity: 0.7; text-decoration: underline; }
 
-    /* TIMELINE (PENDIDIKAN & PKL) */
     .timeline { padding-left: 18px; border-left: 2px dashed var(--accent-brown); }
     .timeline-item { position: relative; margin-bottom: 18px; }
     .timeline-dot { position: absolute; left: -25px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-brown); border: 2px solid white; transition: transform 0.2s; }
@@ -420,39 +363,30 @@
     .timeline-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
     .timeline-card p { font-size: 0.82rem; color: var(--text-muted); }
 
-    /* KONTAK */
     .contact-box {
-      background: var(--accent-soft);
-      border: 1px dashed var(--accent-brown);
-      border-radius: 8px;
-      padding: 35px;
-      text-align: center;
-      transition: transform 0.3s ease;
+      background: var(--accent-soft); border: 1px dashed var(--accent-brown); border-radius: 8px;
+      padding: 35px; text-align: center; transition: transform 0.3s ease;
     }
     .contact-box:hover { transform: scale(1.01); }
     .contact-box h2 { font-family: 'Caveat', cursive; font-size: 2rem; color: var(--accent-brown); margin-bottom: 6px; }
     .contact-box p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px; }
 
-    /* RESPONSIVE MOBILE DENGAN HAMBURGER MENU */
     @media (max-width: 900px) {
       .journal-book { padding: 30px 20px 30px 35px; width: 95%; }
       .journal-book::before { left: 12px; width: 10px; }
       .hero-grid, .about-layout, .skills-grid, .projects-grid { grid-template-columns: 1fr; }
       
+      .sticker-ribbon { width: 52px; height: 52px; right: -8px; top: -15px; }
+      .sticker-leaf { width: 48px; height: 48px; left: -10px; bottom: -15px; }
+      .sticker-camera, .sticker-bear, .sticker-books { transform: scale(0.8); }
+
       .menu-btn { display: block; }
       .nav-links {
         display: none;
         position: absolute;
-        top: 55px;
-        left: 0;
-        right: 0;
-        background: #fdfbf7;
-        border: 1px solid #dcd0be;
-        border-radius: 12px;
-        padding: 16px;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        top: 55px; left: 0; right: 0;
+        background: #fdfbf7; border: 1px solid #dcd0be; border-radius: 12px;
+        padding: 16px; flex-direction: column; align-items: center; gap: 10px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         animation: fadeInDown 0.3s ease forwards;
       }
@@ -471,11 +405,12 @@
 
   <header>
     <nav>
-      <!-- LOGO DENGAN INISIAL W -->
+      <!-- LOGO -->
       <a class="logo" href="#home">
         <div class="logo-badge">W</div> Wulan
       </a>
       
+      <!-- MENU NAVIGASI UTAMA -->
       <ul class="nav-links" id="navLinks">
         <li><a href="#home" class="t-home">Beranda</a></li>
         <li><a href="#about" class="t-about">Tentang</a></li>
@@ -483,10 +418,19 @@
         <li><a href="#projects" class="t-projects">Proyek</a></li>
         <li><a href="#education" class="t-edu">PKL</a></li>
         <li><a href="#contact" class="t-contact">Kontak</a></li>
-        <li><button class="lang-btn mode-id" id="langToggle">ID (Indonesia)</button></li>
       </ul>
 
-      <div style="display: flex; align-items: center; gap: 8px;">
+      <!-- TOMBOL AKSI DI LUAR HAMBURGER (SELALU MUNCUL DI DESKTOP & MOBILE) -->
+      <div class="nav-actions">
+        <!-- TOMBOL SWITCH TOGGLE ID / EN -->
+        <div class="lang-switch" id="langToggle" aria-label="Ganti Bahasa">
+          <div class="switch-handle"></div>
+          <div class="lang-labels">
+            <span class="l-id active">ID</span>
+            <span class="l-en">EN</span>
+          </div>
+        </div>
+
         <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
       </div>
     </nav>
@@ -495,6 +439,12 @@
   <!-- SECTION 1: BERANDA -->
   <section class="journal-section bg-brown-grid" id="home">
     <div class="journal-book">
+      <div class="sticker sticker-label-pill">ENJOY THE LITTLE THINGS</div>
+      <svg class="sticker sticker-leaf" viewBox="0 0 100 100">
+        <path d="M50 5 C35 25, 10 30, 15 55 C20 75, 42 75, 48 80 L48 96 L52 96 L52 80 C58 75, 80 75, 85 55 C90 30, 65 25, 50 5 Z" fill="#9c5a2b" stroke="#f7efe5" stroke-width="3"/>
+        <path d="M50 15 L50 80 M50 38 L30 28 M50 52 L25 46 M50 38 L70 28 M50 52 L75 46" stroke="#5c3214" stroke-width="2" fill="none"/>
+      </svg>
+
       <div class="hero-grid">
         <div class="hero-text">
           <div class="section-header">
@@ -518,6 +468,13 @@
 
         <div class="polaroid-frame">
           <div class="washi-tape"></div>
+          <svg class="sticker sticker-ribbon" viewBox="0 0 100 100">
+            <path d="M50 45 C25 15, 5 30, 20 50 C30 60, 45 50, 50 45 Z" fill="#4a2e1b" stroke="#f7efe5" stroke-width="3"/>
+            <path d="M50 45 C75 15, 95 30, 80 50 C70 60, 55 50, 50 45 Z" fill="#4a2e1b" stroke="#f7efe5" stroke-width="3"/>
+            <path d="M46 48 L22 92 L36 86 L48 54 Z" fill="#3a2314" stroke="#f7efe5" stroke-width="2.5"/>
+            <path d="M54 48 L78 92 L64 86 L52 54 Z" fill="#3a2314" stroke="#f7efe5" stroke-width="2.5"/>
+            <circle cx="50" cy="46" r="8" fill="#5e3b24" stroke="#f7efe5" stroke-width="2.5"/>
+          </svg>
           <div class="polaroid-img">
             <img src="wulan.jpeg" alt="Foto Wulan Maharani" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="polaroid-fallback" style="display:none; height:100%; align-items:center; justify-content:center; color:#6e5c4f;">Foto Wulan</div>
@@ -531,6 +488,13 @@
   <!-- SECTION 2: TENTANG SAYA -->
   <section class="journal-section bg-cream-grid" id="about">
     <div class="journal-book">
+      <svg class="sticker sticker-wax" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="42" fill="#5c3c28" stroke="#f7efe5" stroke-width="4"/>
+        <circle cx="50" cy="50" r="30" fill="none" stroke="#855a3e" stroke-width="3"/>
+        <text x="50" y="61" text-anchor="middle" fill="#d9c3a9" font-family="Georgia, serif" font-size="32" font-weight="bold">W</text>
+      </svg>
+      <div class="sticker sticker-spell">I PUT A SPELL ON YOU ✨</div>
+
       <div class="section-header">
         <span class="section-num t-num2">02 — Profil</span>
         <h2 class="section-title t-abouttitle">Tentang Saya</h2>
@@ -557,6 +521,21 @@
   <!-- SECTION 3: KEAHLIAN & TOOLBOX -->
   <section class="journal-section bg-brown-grid" id="skills">
     <div class="journal-book">
+      <svg class="sticker sticker-camera" viewBox="0 0 120 95">
+        <rect x="10" y="22" width="100" height="62" rx="10" fill="#2b2623" stroke="#f7efe5" stroke-width="4"/>
+        <rect x="10" y="22" width="100" height="20" rx="6" fill="#d9d2c7"/>
+        <rect x="35" y="10" width="32" height="14" rx="4" fill="#d9d2c7" stroke="#2b2623" stroke-width="2"/>
+        <circle cx="60" cy="55" r="22" fill="#b8afa4" stroke="#2b2623" stroke-width="3"/>
+        <circle cx="60" cy="55" r="14" fill="#1c1917"/>
+        <circle cx="55" cy="50" r="4" fill="rgba(255,255,255,0.6)"/>
+      </svg>
+      <svg class="sticker sticker-coffee" viewBox="0 0 100 100">
+        <path d="M76 38 C92 38, 92 62, 76 62" fill="none" stroke="#6b5e4c" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="48" cy="50" r="34" fill="#786956" stroke="#f7efe5" stroke-width="4"/>
+        <circle cx="48" cy="50" r="26" fill="#24160d"/>
+        <path d="M32 42 Q45 34 58 43" stroke="#856549" stroke-width="2.5" fill="none"/>
+      </svg>
+
       <div class="section-header">
         <span class="section-num t-num3">03 — Keahlian</span>
         <h2 class="section-title t-skillstitle">Perkakas Andalan</h2>
@@ -592,14 +571,23 @@
 
   <!-- SECTION 4: PROYEK PILIHAN -->
   <section class="journal-section bg-cream-grid" id="projects">
-    <div style="width: min(900px, 95%);">
+    <div style="width: min(900px, 95%); position: relative;">
       <div class="section-header" style="text-align: center; margin-bottom: 16px;">
         <span class="section-num t-num4">04 — Karya Digital</span>
         <h2 class="section-title t-projtitle">Arsip Proyek Pilihan</h2>
       </div>
       <div class="corkboard">
+        <svg class="sticker sticker-books" viewBox="0 0 110 100">
+          <rect x="12" y="20" width="18" height="72" rx="2" fill="#4f3727" stroke="#f7efe5" stroke-width="2.5"/>
+          <rect x="31" y="14" width="20" height="78" rx="2" fill="#8c6d46" stroke="#f7efe5" stroke-width="2.5"/>
+          <rect x="52" y="22" width="18" height="70" rx="2" fill="#3a291e" stroke="#f7efe5" stroke-width="2.5"/>
+          <rect x="71" y="18" width="22" height="74" rx="2" fill="#a8875b" stroke="#f7efe5" stroke-width="2.5"/>
+          <line x1="15" y1="32" x2="27" y2="32" stroke="#d9c3a9" stroke-width="2"/>
+          <line x1="35" y1="28" x2="47" y2="28" stroke="#f7efe5" stroke-width="2"/>
+          <line x1="75" y1="30" x2="89" y2="30" stroke="#3a291e" stroke-width="2"/>
+        </svg>
+
         <div class="projects-grid">
-          
           <article class="project-card">
             <div class="pin"></div>
             <div class="project-visual">
@@ -638,7 +626,6 @@
               <a class="project-link t-askproj" href="#contact">Tanya proyek ↗</a>
             </div>
           </article>
-
         </div>
       </div>
     </div>
@@ -647,6 +634,21 @@
   <!-- SECTION 5: PENDIDIKAN & PKL -->
   <section class="journal-section bg-brown-grid" id="education">
     <div class="journal-book">
+      <svg class="sticker sticker-bear" viewBox="0 0 110 120">
+        <circle cx="32" cy="24" r="13" fill="#8f6b4e" stroke="#f7efe5" stroke-width="3"/>
+        <circle cx="78" cy="24" r="13" fill="#8f6b4e" stroke="#f7efe5" stroke-width="3"/>
+        <ellipse cx="55" cy="78" rx="28" ry="30" fill="#8f6b4e" stroke="#f7efe5" stroke-width="3"/>
+        <circle cx="55" cy="40" r="24" fill="#9c7658" stroke="#f7efe5" stroke-width="3"/>
+        <ellipse cx="55" cy="45" rx="11" ry="8" fill="#bfa084"/>
+        <circle cx="55" cy="42" r="3.5" fill="#2b1b10"/>
+        <circle cx="46" cy="34" r="3" fill="#1a100a"/>
+        <circle cx="64" cy="34" r="3" fill="#1a100a"/>
+        <ellipse cx="26" cy="72" rx="10" ry="15" transform="rotate(20 26 72)" fill="#8f6b4e" stroke="#f7efe5" stroke-width="2.5"/>
+        <ellipse cx="84" cy="72" rx="10" ry="15" transform="rotate(-20 84 72)" fill="#8f6b4e" stroke="#f7efe5" stroke-width="2.5"/>
+        <circle cx="36" cy="102" r="12" fill="#7d5c42" stroke="#f7efe5" stroke-width="2.5"/>
+        <circle cx="74" cy="102" r="12" fill="#7d5c42" stroke="#f7efe5" stroke-width="2.5"/>
+      </svg>
+
       <div class="section-header">
         <span class="section-num t-num5">05 — Perjalanan</span>
         <h2 class="section-title t-edutitle">Pendidikan & Pengalaman PKL</h2>
@@ -678,6 +680,14 @@
   <!-- SECTION 6: KONTAK -->
   <section class="journal-section bg-cream-grid" id="contact">
     <div class="journal-book">
+      <svg class="sticker sticker-butterfly" viewBox="0 0 110 90">
+        <path d="M55 45 C30 10, 5 15, 12 42 C18 60, 40 52, 55 45 Z" fill="#8c542b" stroke="#f7efe5" stroke-width="3"/>
+        <path d="M55 45 C80 10, 105 15, 98 42 C92 60, 70 52, 55 45 Z" fill="#8c542b" stroke="#f7efe5" stroke-width="3"/>
+        <path d="M55 48 C35 55, 22 78, 38 82 C50 85, 53 62, 55 48 Z" fill="#6b3e1e" stroke="#f7efe5" stroke-width="3"/>
+        <path d="M55 48 C75 55, 88 78, 72 82 C60 85, 57 62, 55 48 Z" fill="#6b3e1e" stroke="#f7efe5" stroke-width="3"/>
+        <ellipse cx="55" cy="48" rx="3.5" ry="20" fill="#2b180c"/>
+      </svg>
+
       <div class="contact-box">
         <h2 class="t-ctitle">Katakan Halo 💌</h2>
         <p class="t-cdesc">Punya ide atau ingin ngobrol seputar proyek? Yuk terhubung lewat WhatsApp!</p>
@@ -694,7 +704,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Animasi Scroll (Intersection Observer untuk efek muncul saat di-scroll)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -707,7 +716,6 @@
       observer.observe(book);
     });
 
-    // Mobile Hamburger Toggle
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
     menuBtn.addEventListener('click', () => {
@@ -720,7 +728,7 @@
       });
     });
 
-    // Simple Translate (ID / EN) dengan Indikator Warna Tombol
+    // Toggle Bahasa & Slider Switch Animasi
     let currentLang = 'id';
     const dict = {
       id: {
@@ -744,8 +752,7 @@
         edusmall1: "Pendidikan Saat Ini", edudesc1: "Mempelajari dasar pemrograman, pembuatan website, dan pengelolaan database.",
         edusmall2: "Praktik Kerja Lapangan (PKL)", edudesc2: "Mendapatkan pengalaman langsung di dunia kerja, meningkatkan disiplin, komunikasi, serta membuat desain profil perusahaan menggunakan Canva.",
         ctitle: "Katakan Halo 💌", cdesc: "Punya ide atau ingin ngobrol seputar proyek? Yuk terhubung lewat WhatsApp!", cbtn: "💬 Hubungi Saya di WhatsApp ↗",
-        footer: "Dibuat dengan penuh cinta oleh",
-        langBtnText: "ID (Indonesia)"
+        footer: "Dibuat dengan penuh cinta oleh"
       },
       en: {
         home: "Home", about: "About", skills: "Skills", projects: "Projects", edu: "Internship", contact: "Contact",
@@ -768,23 +775,27 @@
         edusmall1: "Current Education", edudesc1: "Learning programming fundamentals, web creation, and database management.",
         edusmall2: "Field Internship (PKL)", edudesc2: "Gained direct workplace experience, improved discipline, communication, and designed company profiles using Canva.",
         ctitle: "Say hello 💌", cdesc: "Have an idea or want to chat about a project? Let's connect via WhatsApp!", cbtn: "💬 Contact Me via WhatsApp ↗",
-        footer: "Made with love by",
-        langBtnText: "EN (English)"
+        footer: "Made with love by"
       }
     };
 
     const langToggleBtn = document.getElementById('langToggle');
+    const labelId = document.querySelector('.l-id');
+    const labelEn = document.querySelector('.l-en');
 
     function switchLanguage() {
       currentLang = currentLang === 'id' ? 'en' : 'id';
       const t = dict[currentLang];
       
-      if (currentLang === 'id') {
-        langToggleBtn.className = "lang-btn mode-id";
+      if (currentLang === 'en') {
+        langToggleBtn.classList.add('en');
+        labelId.classList.remove('active');
+        labelEn.classList.add('active');
       } else {
-        langToggleBtn.className = "lang-btn mode-en";
+        langToggleBtn.classList.remove('en');
+        labelEn.classList.remove('active');
+        labelId.classList.add('active');
       }
-      langToggleBtn.textContent = t.langBtnText;
       
       document.querySelector('.t-home').textContent = t.home;
       document.querySelector('.t-about').textContent = t.about;
