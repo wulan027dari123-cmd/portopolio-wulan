@@ -1,39 +1,32 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" id="htmlTag">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#fff4e8">
-  <meta name="description" content="Portofolio Wulan Maharani, pelajar Rekayasa Perangkat Lunak.">
-  <title>Wulan Maharani — Dutch Wonderland Portfolio</title>
+  <meta name="theme-color" content="#4a3525">
+  <meta name="description" content="Portofolio Wulan Maharani - Brown Vintage Scrapbook Portfolio.">
+  <title id="pageTitle">Wulan Maharani — Portfolio</title>
 
-  <!-- ========================================================= -->
-  <!-- KODE LOGO TAB BROWSER (FAVICON) DITAMBAHKAN DI SINI -->
-  <!-- Ganti href="logo.png" jika kamu punya file gambar logo sendiri -->
-  <!-- ========================================================= -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
+  <!-- Favicon Jurnal Inisial W -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%236b4c35%22>W</text></svg>">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --cream: #fff7ed;
-      --paper: #fffdf8;
-      --ink: #273b35;
-      --muted: #69766d;
-      --red: #e56d62;
-      --red-dark: #c95049;
-      --pink: #f7c9c4;
-      --yellow: #f4c95d;
-      --sage: #9fbea2;
-      --green: #3f775b;
-      --mint: #dcecdf;
-      --blue: #cce6eb;
-      --line: #eadfd0;
-      --shadow: 0 18px 45px #5c47351a;
-      --radius: 28px;
+      --bg-brown: #3e2d20;
+      --bg-cream: #f4ecdf;
+      --book-page: #fbf7f0;
+      --page-line: #e6dec9;
+      --text-main: #362a22;
+      --text-muted: #6e5c4f;
+      --accent-brown: #6b4c35;
+      --accent-soft: #ebdccf;
+      --tape-yellow: rgba(234, 212, 138, 0.85);
+      --cork-bg: #8c5830;
+      --shadow-book: 0 15px 35px rgba(0, 0, 0, 0.35);
     }
 
     * {
@@ -44,1647 +37,812 @@
     }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-      line-height: 1.7;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-brown);
       overflow-x: hidden;
     }
 
-    body.dark {
-      --cream: #202c28;
-      --paper: #293833;
-      --ink: #f9f1e5;
-      --muted: #c4cec3;
-      --line: #45574d;
-      --mint: #354d40;
-      --blue: #344d54;
-      --shadow: 0 18px 45px #0003;
-    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+    img { max-width: 100%; display: block; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-      cursor: pointer;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(1120px, 90%);
-      margin: auto;
-    }
-
-    .topbar {
-      height: 7px;
-      background: linear-gradient(
-        90deg,
-        var(--red) 0 25%,
-        var(--yellow) 25% 50%,
-        var(--green) 50% 75%,
-        #79b8c4 75%
-      );
-    }
-
+    /* HEADER FLOATING */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: color-mix(in srgb, var(--cream) 88%, transparent);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line);
+      position: fixed;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      width: min(700px, 92%);
+      background: rgba(249, 244, 238, 0.95);
+      border: 1px solid #dcd0be;
+      border-radius: 30px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
     }
 
     nav {
-      min-height: 76px;
+      height: 50px;
+      padding: 0 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
     }
 
     .logo {
-      font-weight: 800;
-      font-size: 1.08rem;
-      letter-spacing: -.5px;
+      font-family: 'Caveat', cursive;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent-brown);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
+      transition: transform 0.2s ease;
     }
+    .logo:hover { transform: scale(1.03); }
 
-    .logo-mark {
-      width: 38px;
-      height: 38px;
+    .logo-badge {
+      width: 24px;
+      height: 24px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-brown);
+      border-radius: 50%;
       display: grid;
       place-items: center;
-      border-radius: 14px;
-      background: var(--red);
-      color: white;
-      transform: rotate(-7deg);
-      box-shadow: 4px 4px 0 var(--yellow);
-    }
-
-    .logo span:last-child {
-      color: var(--red);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-brown);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 14px;
       list-style: none;
     }
 
     .nav-links a {
-      font-size: .88rem;
-      font-weight: 700;
-      color: var(--muted);
-      transition: .25s;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: color 0.2s ease, transform 0.2s ease;
     }
 
     .nav-links a:hover {
-      color: var(--red);
-      transform: translateY(-2px);
+      color: var(--accent-brown);
+      transform: translateY(-1px);
     }
 
-    .nav-actions {
-      display: flex;
-      gap: 8px;
-      align-items: center;
+    /* TOMBOL TRANSLATE DENGAN INDIKATOR WARNA */
+    .lang-btn {
+      background: var(--accent-soft);
+      border: 1px solid #dcd0be;
+      color: var(--accent-brown);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .lang-btn:hover { transform: scale(1.05); }
+    
+    .lang-btn.mode-id {
+      background-color: #6b4c35;
+      color: white;
+      border-color: #4a3525;
+      box-shadow: 0 2px 8px rgba(107, 76, 53, 0.4);
     }
 
-    .icon-btn,
-    .menu-btn {
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--line);
-      background: var(--paper);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: var(--ink);
-      transition: .25s;
+    .lang-btn.mode-en {
+      background-color: #b5651d;
+      color: white;
+      border-color: #8c4a12;
+      box-shadow: 0 2px 8px rgba(181, 101, 29, 0.4);
     }
 
-    .icon-btn:hover {
-      transform: rotate(-12deg) scale(1.06);
-    }
-
+    /* HAMBURGER MENU MOBILE */
     .menu-btn {
       display: none;
-      font-size: 1.2rem;
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      color: var(--accent-brown);
+      transition: transform 0.2s;
     }
+    .menu-btn:active { transform: rotate(90deg); }
 
-    /* BERANDA / HERO SECTION */
-
-    .hero {
+    /* SECTION FULL SCREEN LAYOUT */
+    .journal-section {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 90px 20px 40px;
       position: relative;
-      min-height: 700px;
-      padding: 82px 0 70px;
-      overflow: hidden;
-      background:
-        radial-gradient(ellipse at 8% 20%, #f8d8ce 0, transparent 25%),
-        radial-gradient(ellipse at 88% 15%, #dcecdf 0, transparent 24%),
-        var(--cream);
     }
 
+    .bg-brown-grid {
+      background-color: var(--bg-brown);
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 35px 35px;
+    }
+
+    .bg-cream-grid {
+      background-color: var(--bg-cream);
+      background-image: linear-gradient(rgba(62,45,32,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(62,45,32,0.04) 1px, transparent 1px);
+      background-size: 35px 35px;
+      color: #362a22;
+    }
+
+    /* BUKU JURNAL UTAMA DENGAN ANIMASI FADE-IN SCROLL */
+    .journal-book {
+      background-color: var(--book-page);
+      background-image: repeating-linear-gradient(transparent, transparent 31px, var(--page-line) 31px, var(--page-line) 32px);
+      background-size: 100% 32px;
+      border: 1px solid #d9ccb9;
+      border-radius: 6px 14px 14px 6px;
+      box-shadow: var(--shadow-book);
+      width: min(850px, 95%);
+      padding: 50px 60px;
+      position: relative;
+      
+      /* Animasi Masuk */
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .journal-book.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .journal-book::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 30px;
+      bottom: 30px;
+      width: 12px;
+      background: repeating-linear-gradient(to bottom, #555, #555 6px, #bbb 6px, #bbb 12px, #222 12px, #222 14px);
+      border-radius: 4px;
+    }
+
+    /* JUDUL SECTION */
+    .section-header { margin-bottom: 24px; }
+    .section-num { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .section-title { font-family: 'Caveat', cursive; font-size: 2.5rem; color: var(--accent-brown); line-height: 1.1; }
+
+    /* HERO GRID */
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.04fr .96fr;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
       align-items: center;
-      gap: 42px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: .82rem;
-      font-weight: 800;
-      color: var(--green);
-      box-shadow: 0 6px 18px #65462a0b;
-    }
-
-    .eyebrow .dot {
-      width: 8px;
-      height: 8px;
-      background: var(--red);
-      border-radius: 50%;
-      animation: pulse 1.8s infinite;
-    }
-
-    h1, h2, h3 {
-      line-height: 1.15;
     }
 
     h1 {
-      font: 800 clamp(2.8rem, 5.6vw, 5.5rem)/1.04 'Playfair Display', serif;
-      letter-spacing: -2.3px;
-      margin: 22px 0;
+      font-family: 'Caveat', cursive;
+      font-size: clamp(2.8rem, 4.5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 12px;
     }
-
-    .hero h1 .name {
-      color: var(--red);
-      position: relative;
-      display: inline-block;
+    h1 .name {
+      color: var(--accent-brown);
+      border-bottom: 2px dashed var(--accent-brown);
     }
-
-    .hero h1 .name::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 100%;
-      height: 9px;
-      background: var(--yellow);
-      border-radius: 100%;
-      z-index: -1;
-      transform: rotate(-2deg);
+    .hero-copy { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .tag-chip {
+      font-size: 0.76rem;
+      font-weight: 600;
+      background: white;
+      border: 1px solid #dcd0be;
+      padding: 4px 10px;
+      border-radius: 6px;
+      transition: transform 0.2s, background 0.2s;
     }
-
-    .hero-copy {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 540px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
+    .tag-chip:hover { transform: translateY(-2px); background: var(--accent-soft); }
 
     .btn {
-      border: 0;
-      border-radius: 15px;
-      padding: 13px 20px;
-      font-weight: 800;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      transition: transform .25s, box-shadow .25s;
+      gap: 6px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
+    .btn-primary { background: var(--accent-brown); color: white; border: 1px solid var(--accent-brown); }
+    .btn-primary:hover { opacity: 0.95; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(107, 76, 53, 0.3); }
+    .btn-secondary { background: white; color: var(--text-main); border: 1px solid #dcd0be; }
+    .btn-secondary:hover { transform: translateY(-3px); background: #faf4eb; }
 
-    .btn:hover {
-      transform: translateY(-4px) rotate(-1deg);
-      box-shadow: 0 12px 22px #533a291c;
+    /* POLAROID DENGAN ANIMASI HOVER */
+    .polaroid-frame {
+      background: white;
+      padding: 12px 12px 18px 12px;
+      border: 1px solid #dcd0be;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transform: rotate(2deg);
+      max-width: 250px;
+      margin: 0 auto;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .btn-primary {
-      background: var(--red);
-      color: white;
-      box-shadow: 5px 5px 0 var(--yellow);
+    .polaroid-frame:hover {
+      transform: rotate(0deg) scale(1.03);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
-
-    .btn-secondary {
-      background: var(--paper);
-      border: 1px solid var(--line);
+    .washi-tape {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 20px;
+      background-color: var(--tape-yellow);
+      z-index: 10;
     }
+    .polaroid-img { width: 100%; aspect-ratio: 4 / 4.2; background: #f4ecdf; overflow: hidden; margin-bottom: 10px; }
+    .polaroid-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .polaroid-frame:hover .polaroid-img img { transform: scale(1.08); }
+    .polaroid-caption { font-family: 'Caveat', cursive; font-size: 1.35rem; text-align: center; color: var(--accent-brown); }
 
-    .mini-note {
-      margin-top: 25px;
-      color: var(--muted);
-      font-size: .85rem;
-      display: flex;
-      align-items: center;
-      gap: 9px;
+    /* TENTANG SAYA & STICKY NOTES */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: start;
     }
-
-    .mini-note strong {
-      color: var(--green);
+    .quote-box {
+      background: white;
+      border: 1px solid #dcd0be;
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      position: relative;
+      transition: transform 0.2s ease;
     }
-
-    /* POP STIKER RAME DI BERANDA */
-    .hero-pop-tags {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .hero-pop-chip {
-      background: var(--paper);
-      border: 2px solid var(--ink);
-      box-shadow: 3px 3px 0 var(--yellow);
-      padding: 6px 14px;
-      border-radius: 20px;
+    .quote-box:hover { transform: translateY(-2px); }
+    .quote-box p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.7; }
+    
+    .sticky-notes-stack { display: flex; flex-direction: column; gap: 10px; }
+    .sticky-note {
+      padding: 14px;
+      border-radius: 6px;
       font-size: 0.8rem;
-      font-weight: 800;
-      cursor: pointer;
-      user-select: none;
-      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-pop-chip:hover {
-      transform: scale(1.1) rotate(-3deg);
-      box-shadow: 5px 5px 0 var(--red);
-      background: #fff;
-    }
-
-    /* ILUSTRASI FOTO DAN STIKER POP ATAS */
-
-    .hero-art {
-      min-height: 480px;
+      font-weight: 600;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
       position: relative;
-      display: grid;
-      place-items: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+    .sticky-note:hover { transform: translateX(4px) scale(1.02); box-shadow: 0 5px 12px rgba(0,0,0,0.12); }
+    .note-brown { background: #f0e4d7; color: #422d1d; border-left: 4px solid #704c32; }
+    .note-cream { background: #faf4eb; color: #4a3c31; border-left: 4px solid #9c8065; }
+    .note-yellow { background: #fbf3d5; color: #4a401e; border-left: 4px solid #b3922d; }
 
-    .sun {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: var(--yellow);
-      border-radius: 50%;
-      top: 30px;
-      right: 35px;
-      opacity: .85;
-      animation: sunbob 6s ease-in-out infinite;
-    }
-
-    .arch {
-      position: absolute;
-      width: 290px;
-      height: 355px;
-      border: 10px solid var(--red);
-      border-bottom: 0;
-      border-radius: 150px 150px 18px 18px;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--pink);
-      box-shadow: inset 0 0 0 8px #fff5e6;
-      overflow: hidden;
-    }
-
-    .arch::before {
-      content: '';
-      position: absolute;
-      inset: 20px 18px 0;
-      border: 2px dashed #c9504955;
-      border-bottom: 0;
-      border-radius: 140px 140px 0 0;
-    }
-
-    .portrait-frame {
-      position: absolute;
-      width: 225px;
-      height: 290px;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      border: 8px solid var(--paper);
-      border-radius: 120px 120px 20px 20px;
-      overflow: hidden;
-      background: var(--sage);
-      box-shadow: 0 18px 35px #47332928;
-      animation: float 5s ease-in-out infinite;
-    }
-
-    .portrait-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .portrait-fallback {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 8px;
-      font-size: 4rem;
-      color: var(--green);
-      background: linear-gradient(160deg, #d9ead9, #f8d8ce);
-    }
-
-    .portrait-fallback small {
-      font-size: .8rem;
-      font-weight: 800;
-    }
-
-    /* POP STIKER MELAYANG DI BERANDA */
-    .sticker {
-      position: absolute;
-      z-index: 5;
-      display: grid;
-      place-items: center;
-      box-shadow: 4px 4px 0 var(--ink);
-      border: 2px solid var(--ink);
-      background: var(--paper);
-      border-radius: 18px;
-      padding: 8px 12px;
-      font-weight: 800;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background 0.3s ease;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    .sticker:hover {
-      transform: scale(1.25) rotate(-6deg) !important;
-      box-shadow: 6px 6px 0 var(--red);
-    }
-
-    .sticker-tulip {
-      font-size: 2.2rem;
-      top: 25px;
-      left: 5%;
-      border-radius: 50%;
-      width: 58px;
-      height: 58px;
-      padding: 0;
-      transform: rotate(-13deg);
-      background: var(--pink);
-    }
-
-    .sticker-star {
-      width: 56px;
-      height: 56px;
-      background: var(--yellow);
-      border-radius: 50%;
-      right: 2%;
-      top: 70px;
-      font-size: 1.6rem;
-      padding: 0;
-      animation-delay: -1.5s;
-    }
-
-    .sticker-note {
-      right: -10px;
-      bottom: 60px;
-      transform: rotate(7deg);
-      animation-delay: -2s;
-    }
-
-    .sticker-note span {
-      display: block;
-      color: var(--red);
-      font-size: 0.95rem;
-    }
-
-    .sticker-music {
-      left: 2%;
-      bottom: 40px;
-      transform: rotate(-8deg);
-      background: var(--mint);
-      animation-delay: -3s;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .sticker-music.playing {
-      background: var(--pink) !important;
-      box-shadow: 4px 4px 0 var(--red) !important;
-      animation: pulse 1.5s infinite alternate !important;
-    }
-
-    .flower {
-      position: absolute;
-      font-size: 1.7rem;
-      opacity: .8;
-      animation: drift 9s ease-in-out infinite;
-    }
-
-    .f1 { top: 12%; left: 48%; }
-    .f2 { bottom: 14%; left: 4%; animation-delay: -3s; }
-    .f3 { top: 25%; right: 5%; animation-delay: -5s; }
-
-    .floating-petals {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .petal {
-      position: absolute;
-      top: -40px;
-      animation: fall linear infinite;
-      opacity: .75;
-      font-size: 18px;
-    }
-
-    /* TEKS BERJALAN */
-
-    .ticker {
-      background: var(--green);
-      color: #fff9e9;
-      overflow: hidden;
-      padding: 13px 0;
-      transform: rotate(-1deg) scale(1.02);
-      margin: 0 0 18px;
-    }
-
-    .ticker-track {
-      display: flex;
-      gap: 28px;
-      width: max-content;
-      animation: marquee 28s linear infinite;
-      font-size: .82rem;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    .ticker-track span { white-space: nowrap; }
-    .ticker-track b { color: var(--yellow); }
-
-    /* BAGIAN UMUM */
-
-    section {
-      padding: 88px 0;
-      position: relative;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 650px;
-      margin: 0 auto 42px;
-    }
-
-    .kicker {
-      font-size: .76rem;
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--red);
-    }
-
-    .section-heading h2 {
-      font: 800 clamp(2.1rem, 4vw, 3.3rem)/1.12 'Playfair Display', serif;
-      margin: 12px 0 14px;
-      letter-spacing: -1px;
-    }
-
-    .section-heading h2 span { color: var(--red); }
-    .section-heading p { color: var(--muted); }
-
-    /* TENTANG SAYA */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .about-art {
-      background: var(--mint);
-      border-radius: var(--radius);
-      padding: 28px;
-      min-height: 330px;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--line);
-    }
-
-    .about-art .big-flower {
-      font-size: 7rem;
-      position: absolute;
-      right: 20px;
-      bottom: 5px;
-      animation: spinSlow 20s linear infinite;
-    }
-
-    .about-art h3 {
-      font: 800 2rem 'Playfair Display', serif;
-      max-width: 220px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .about-art p {
-      margin-top: 15px;
-      color: var(--muted);
-      max-width: 230px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .tiny-house {
-      position: absolute;
-      bottom: 0;
-      left: 25px;
-      width: 100px;
-      height: 130px;
-      background: var(--red);
-      border-radius: 40px 40px 0 0;
-    }
-
-    .tiny-house::before {
-      content: '';
-      position: absolute;
-      top: -36px;
-      left: -10px;
-      border-left: 60px solid transparent;
-      border-right: 60px solid transparent;
-      border-bottom: 42px solid var(--yellow);
-    }
-
-    .tiny-house::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 35px;
-      width: 30px;
-      height: 52px;
-      background: #f7d9a4;
-      border-radius: 14px 14px 0 0;
-    }
-
-    .about-copy {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 34px;
-      box-shadow: var(--shadow);
-    }
-
-    .about-copy h3 {
-      font: 700 1.6rem 'Playfair Display', serif;
-      margin-bottom: 13px;
-    }
-
-    .about-copy p {
-      color: var(--muted);
-      margin-bottom: 15px;
-    }
-
-    .info-pills {
-      display: flex;
-      gap: 9px;
-      flex-wrap: wrap;
-      margin-top: 22px;
-    }
-
-    .pill {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--cream);
-      border: 1px solid var(--line);
-      font-size: .78rem;
-      font-weight: 800;
-    }
-
-    .pill:nth-child(2n) { background: var(--mint); }
-
-    /* KEAHLIAN */
-
-    .skills {
-      background: var(--blue);
-      background: linear-gradient(
-        140deg,
-        color-mix(in srgb, var(--blue) 70%, var(--cream)),
-        var(--cream) 70%
-      );
-    }
-
+    /* KEAHLIAN / TOOLBOX */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 14px;
     }
-
     .skill-card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: 0 8px 20px #4733290b;
-      transition: .3s;
-      position: relative;
-      overflow: hidden;
+      background: white;
+      border: 1px solid #dcd0be;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-
-    .skill-card::before {
-      content: '';
-      position: absolute;
-      width: 95px;
-      height: 95px;
-      background: var(--pink);
-      border-radius: 50%;
-      right: -32px;
-      top: -32px;
-      opacity: .7;
-      transition: .4s;
-    }
-
     .skill-card:hover {
-      transform: translateY(-8px) rotate(-1deg);
-      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(107, 76, 53, 0.12);
+      border-color: var(--accent-brown);
     }
+    .skill-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--accent-brown); margin-bottom: 4px; }
+    .skill-card p { font-size: 0.8rem; color: var(--text-muted); }
 
-    .skill-card:hover::before { transform: scale(1.5); }
-
-    .skill-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 17px;
-      background: var(--mint);
-      display: grid;
-      place-items: center;
-      font-size: 1.6rem;
-      margin-bottom: 18px;
-      position: relative;
+    /* PAPAN PROYEK ALA CORKBOARD */
+    .corkboard {
+      background-color: var(--cork-bg);
+      background-image: radial-gradient(#6e4221 1px, transparent 1px);
+      background-size: 16px 16px;
+      border: 6px solid #4a2e18;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: inset 0 5px 15px rgba(0,0,0,0.4);
     }
-
-    .skill-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-      position: relative;
-    }
-
-    .skill-card p {
-      color: var(--muted);
-      font-size: .9rem;
-      position: relative;
-    }
-
-    /* PROYEK */
-
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 16px;
     }
-
     .project-card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 26px;
+      background: white;
+      border-radius: 6px;
       overflow: hidden;
-      box-shadow: 0 8px 20px #4733290b;
-      transition: transform .35s, box-shadow .35s;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      position: relative;
+      padding: 10px 10px 16px 10px;
+      transform: rotate(-1deg);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
     }
-
+    .project-card:nth-child(even) { transform: rotate(1deg); }
     .project-card:hover {
-      transform: translateY(-10px) rotate(.5deg);
-      box-shadow: var(--shadow);
+      transform: translateY(-6px) rotate(0deg) scale(1.02);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+      z-index: 5;
     }
-
-    .project-visual {
-      height: 180px;
-      display: grid;
-      place-items: center;
-      position: relative;
-      overflow: hidden;
-      font-size: 4rem;
-    }
-
-    .project-visual::before,
-    .project-visual::after {
-      content: '';
+    
+    .pin {
       position: absolute;
+      top: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 12px;
+      background: #a84242;
       border-radius: 50%;
-      background: #ffffff50;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      z-index: 10;
     }
 
-    .project-visual::before {
-      width: 140px;
-      height: 140px;
-      top: -45px;
-      right: -20px;
-    }
+    .project-visual { height: 110px; background: #eee; border-radius: 4px; overflow: hidden; margin-bottom: 10px; }
+    .project-visual img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .project-card:hover .project-visual img { transform: scale(1.1); }
+    .project-tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--accent-brown); margin-bottom: 2px; }
+    .project-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+    .project-card p { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; }
+    .project-link { font-size: 0.78rem; font-weight: 600; color: var(--accent-brown); transition: opacity 0.2s; }
+    .project-link:hover { opacity: 0.7; text-decoration: underline; }
 
-    .project-visual::after {
-      width: 80px;
-      height: 80px;
-      bottom: -25px;
-      left: 20px;
-    }
-
-    .visual-web { background: #d6e9d7; }
-    .visual-laundry { background: #f8d4d0; }
-    .visual-design { background: #f5df9e; }
-
-    .visual-emoji {
-      position: relative;
-      z-index: 1;
-      filter: drop-shadow(0 8px 4px #00000012);
-      transition: .4s;
-    }
-
-    .project-card:hover .visual-emoji {
-      transform: scale(1.16) rotate(-8deg);
-    }
-
-    .project-body { padding: 23px; }
-
-    .project-tag {
-      font-size: .72rem; 
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 1.1px;
-      color: var(--red);
-    }
-
-    .project-body h3 {
-      font: 700 1.3rem 'Playfair Display', serif;
-      margin: 9px 0;
-    }
-
-    .project-body p {
-      font-size: .9rem;
-      color: var(--muted);
-      margin-bottom: 17px;
-    }
-
-    .project-link {
-      font-size: .86rem;
-      font-weight: 900;
-      color: var(--green);
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .project-link:hover { color: var(--red); }
-
-    /* PENDIDIKAN */
-
-    .education {
-      background: var(--paper);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .timeline {
-      max-width: 800px;
-      margin: auto;
-      position: relative;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 25px;
-      top: 15px;
-      bottom: 15px;
-      width: 3px;
-      background: repeating-linear-gradient(
-        to bottom,
-        var(--red) 0 9px,
-        transparent 9px 16px
-      );
-    }
-
-    .timeline-item {
-      position: relative;
-      padding: 0 0 28px 72px;
-    }
-
-    .timeline-item:last-child { padding-bottom: 0; }
-
-    .timeline-dot {
-      position: absolute;
-      left: 11px;
-      top: 5px;
-      width: 32px;
-      height: 32px;
-      background: var(--yellow);
-      border: 5px solid var(--paper);
-      border-radius: 50%;
-      box-shadow: 0 0 0 2px var(--red);
-    }
-
-    .timeline-card {
-      padding: 22px 25px;
-      border: 1px solid var(--line);
-      background: var(--cream);
-      border-radius: 20px;
-      transition: .3s;
-    }
-
-    .timeline-card:hover { transform: translateX(7px); }
-
-    .timeline-card small {
-      color: var(--red);
-      font-weight: 900;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .timeline-card h3 {
-      font: 700 1.25rem 'Playfair Display', serif;
-      margin: 7px 0;
-    }
-
-    .timeline-card p {
-      color: var(--muted);
-      font-size: .92rem;
-    }
+    /* TIMELINE (PENDIDIKAN & PKL) */
+    .timeline { padding-left: 18px; border-left: 2px dashed var(--accent-brown); }
+    .timeline-item { position: relative; margin-bottom: 18px; }
+    .timeline-dot { position: absolute; left: -25px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-brown); border: 2px solid white; transition: transform 0.2s; }
+    .timeline-item:hover .timeline-dot { transform: scale(1.4); background: #b5651d; }
+    .timeline-card { background: white; border: 1px solid #dcd0be; border-radius: 8px; padding: 16px; box-shadow: 0 3px 8px rgba(0,0,0,0.03); transition: transform 0.2s ease; }
+    .timeline-card:hover { transform: translateX(4px); }
+    .timeline-card small { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; color: var(--accent-brown); display: block; margin-bottom: 4px; }
+    .timeline-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+    .timeline-card p { font-size: 0.82rem; color: var(--text-muted); }
 
     /* KONTAK */
-
-    .contact-card {
-      background: var(--red);
-      border-radius: 34px;
-      padding: 52px 35px;
+    .contact-box {
+      background: var(--accent-soft);
+      border: 1px dashed var(--accent-brown);
+      border-radius: 8px;
+      padding: 35px;
       text-align: center;
-      color: white;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 8px 8px 0 var(--yellow);
+      transition: transform 0.3s ease;
     }
+    .contact-box:hover { transform: scale(1.01); }
+    .contact-box h2 { font-family: 'Caveat', cursive; font-size: 2rem; color: var(--accent-brown); margin-bottom: 6px; }
+    .contact-box p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px; }
 
-    .contact-card::before,
-    .contact-card::after {
-      content: '✿';
-      position: absolute;
-      font-size: 7rem;
-      color: #ffffff25;
-      animation: spinSlow 22s linear infinite;
-    }
-
-    .contact-card::before { left: 15px; top: -25px; }
-    .contact-card::after { right: 20px; bottom: -45px; }
-
-    .contact-card h2 {
-      font: 800 clamp(2rem, 4vw, 3.3rem)/1.1 'Playfair Display', serif;
-      margin: 12px auto;
-      max-width: 700px;
-      position: relative;
-    }
-
-    .contact-card p {
-      max-width: 600px;
-      margin: 15px auto 25px;
-      color: #fff1e9;
-      position: relative;
-    }
-
-    .contact-card .btn {
-      background: var(--paper);
-      color: var(--red-dark);
-      position: relative;
-      box-shadow: 5px 5px 0 #8e3934;
-    }
-
-    .contact-card .kicker { color: #ffe49a; }
-
-    footer {
-      padding: 28px 0 35px;
-      text-align: center;
-      color: var(--muted);
-      font-size: .84rem;
-    }
-
-    .footer-flower {
-      display: inline-block;
-      animation: spinSlow 18s linear infinite;
-      margin: 0 5px;
-    }
-
-    /* FLOATING POP ICONS RAME DI POJOK KANAN BAWAH */
-    .pop-icons-wrapper {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      z-index: 999;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .pop-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: var(--paper);
-      border: 3px solid var(--ink);
-      box-shadow: 4px 4px 0 var(--red);
-      display: grid;
-      place-items: center;
-      font-size: 1.4rem;
-      color: var(--ink);
-      position: relative;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-      animation: floatPop 3s ease-in-out infinite;
-    }
-
-    .pop-icon:nth-child(1) { animation-delay: 0s; }
-    .pop-icon:nth-child(2) { animation-delay: 0.3s; }
-    .pop-icon:nth-child(3) { animation-delay: 0.6s; }
-    .pop-icon:nth-child(4) { animation-delay: 0.9s; }
-    .pop-icon:nth-child(5) { animation-delay: 1.2s; }
-
-    .pop-icon:hover {
-      transform: scale(1.25) rotate(-8deg);
-      box-shadow: 6px 6px 0 var(--yellow);
-      background: #fff;
-    }
-
-    .pop-icon:active {
-      transform: scale(0.95) translate(2px, 2px);
-      box-shadow: 2px 2px 0 var(--yellow);
-    }
-
-    .pop-icon::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      right: 68px;
-      top: 50%;
-      transform: translateY(-50%) scale(0.7);
-      opacity: 0;
-      pointer-events: none;
-      background: var(--ink);
-      color: var(--paper);
-      padding: 6px 14px;
-      border-radius: 12px;
-      font-size: 0.8rem;
-      font-weight: 800;
-      white-space: nowrap;
-      box-shadow: 3px 3px 0 var(--yellow);
-      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .pop-icon:hover::after {
-      opacity: 1;
-      transform: translateY(-50%) scale(1);
-    }
-
-    /* ANIMASI SCROLL & BOUNCE */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px) scale(.985);
-      transition: opacity .75s ease, transform .75s cubic-bezier(.2,.8,.2,1);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .reveal.delay-1 { transition-delay: .12s; }
-    .reveal.delay-2 { transition-delay: .24s; }
-    .reveal.delay-3 { transition-delay: .36s; }
-
-    @keyframes floatPop {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-7px); }
-    }
-
-    @keyframes float {
-      0%, 100% { translate: 0 0; }
-      50% { translate: 0 -12px; }
-    }
-
-    @keyframes sunbob {
-      0%, 100% { transform: translateY(0) rotate(0); }
-      50% { transform: translateY(-12px) rotate(8deg); }
-    }
-
-    @keyframes drift {
-      0%, 100% { transform: translate(0,0) rotate(0); }
-      50% { transform: translate(16px,-20px) rotate(12deg); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 4px #e56d6220; }
-      50% { box-shadow: 0 0 0 8px #e56d6210; }
-    }
-
-    @keyframes marquee {
-      to { transform: translateX(-50%); }
-    }
-
-    @keyframes spinSlow {
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translate3d(0,-10vh,0) rotate(0);
-        opacity: 0;
-      }
-      10% { opacity: .8; }
-      100% {
-        transform: translate3d(70px,110vh,0) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    /* RESPONSIVE */
-
+    /* RESPONSIVE MOBILE DENGAN HAMBURGER MENU */
     @media (max-width: 900px) {
-      .nav-links { gap: 13px; }
-      .nav-links a { font-size: .8rem; }
-      .hero-grid { gap: 15px; }
-      .hero-art { min-height: 400px; }
-      .sun { width: 250px; height: 250px; }
-      .arch { width: 250px; height: 320px; }
-      .portrait-frame { width: 195px; height: 260px; }
-      .skills-grid,
-      .projects-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 700px) {
-      nav { min-height: 68px; }
-      .menu-btn { display: grid; }
-
+      .journal-book { padding: 30px 20px 30px 35px; width: 95%; }
+      .journal-book::before { left: 12px; width: 10px; }
+      .hero-grid, .about-layout, .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+      
+      .menu-btn { display: block; }
       .nav-links {
         display: none;
         position: absolute;
-        top: 68px;
-        left: 5%;
-        right: 5%;
-        background: var(--paper);
-        padding: 18px;
-        border: 1px solid var(--line);
-        border-radius: 20px;
-        box-shadow: var(--shadow);
+        top: 55px;
+        left: 0;
+        right: 0;
+        background: #fdfbf7;
+        border: 1px solid #dcd0be;
+        border-radius: 12px;
+        padding: 16px;
         flex-direction: column;
-        align-items: stretch;
-        gap: 0;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        animation: fadeInDown 0.3s ease forwards;
       }
-
       .nav-links.open { display: flex; }
-      .nav-links a { display: block; padding: 11px 8px; font-size: .95rem; }
-      .hero { padding: 52px 0 55px; }
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-copy { font-size: 1rem; }
-      .hero-art { min-height: 380px; max-width: 440px; width: 100%; margin: 0 auto; }
-      .sun { right: 12%; }
-      .sticker-tulip { left: 4%; }
-      .sticker-note { right: 2%; }
-      section { padding: 66px 0; }
-      .about-grid { grid-template-columns: 1fr; }
-      .about-art { min-height: 280px; }
-      .about-copy { padding: 25px; }
-      .skills-grid,
-      .projects-grid { grid-template-columns: 1fr; }
-      .project-visual { height: 160px; }
-      .section-heading { margin-bottom: 30px; }
-      .contact-card { padding: 42px 22px; }
-      .contact-card::before,
-      .contact-card::after { font-size: 4rem; }
-      .ticker { margin-bottom: 0; }
-
-      .pop-icons-wrapper {
-        bottom: 18px;
-        right: 18px;
-        gap: 8px;
-      }
-      .pop-icon {
-        width: 44px;
-        height: 44px;
-        font-size: 1.15rem;
-        box-shadow: 3px 3px 0 var(--red);
-      }
+      header { width: 92%; }
     }
 
-    @media (max-width: 420px) {
-      .hero-art { min-height: 340px; }
-      .sun { width: 220px; height: 220px; }
-      .arch { width: 220px; height: 280px; }
-      .portrait-frame { width: 175px; height: 230px; bottom: 30px; }
-      .sticker-star { width: 52px; height: 52px; }
-      .sticker-note { font-size: .72rem; padding: 9px 12px; }
-      .hero h1 { letter-spacing: -1.5px; }
-      .btn { width: 100%; }
-      .hero-buttons { max-width: 330px; }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 
 <body>
-  <div class="topbar"></div>
 
   <header>
-    <nav class="container" aria-label="Navigasi utama">
+    <nav>
+      <!-- LOGO DENGAN INISIAL W -->
       <a class="logo" href="#home">
-        <span class="logo-mark">🌷</span>
-        <span>WULAN <span>MAHARANI</span></span>
+        <div class="logo-badge">W</div> Wulan
       </a>
-
+      
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Beranda</a></li>
-        <li><a href="#about">Tentang</a></li>
-        <li><a href="#skills">Keahlian</a></li>
-        <li><a href="#projects">Proyek</a></li>
-        <li><a href="#education">Pendidikan</a></li>
-        <li><a href="#contact">Kontak</a></li>
+        <li><a href="#home" class="t-home">Beranda</a></li>
+        <li><a href="#about" class="t-about">Tentang</a></li>
+        <li><a href="#skills" class="t-skills">Keahlian</a></li>
+        <li><a href="#projects" class="t-projects">Proyek</a></li>
+        <li><a href="#education" class="t-edu">PKL</a></li>
+        <li><a href="#contact" class="t-contact">Kontak</a></li>
+        <li><button class="lang-btn mode-id" id="langToggle">ID (Indonesia)</button></li>
       </ul>
 
-      <div class="nav-actions">
-        <button class="icon-btn" id="themeToggle" aria-label="Ganti tema" title="Ganti tema">☾</button>
-        <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false">☰</button>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
       </div>
     </nav>
   </header>
 
-  <main>
-    <!-- BERANDA DENGAN POP ICON & STIKER RAME -->
-    <section class="hero" id="home">
-      <div class="floating-petals" id="petals" aria-hidden="true"></div>
-
-      <span class="flower f1" aria-hidden="true">✿</span>
-      <span class="flower f2" aria-hidden="true">🌼</span>
-      <span class="flower f3" aria-hidden="true">🌷</span>
-
-      <div class="container hero-grid">
-        <div class="hero-text reveal">
-          <div class="eyebrow">
-            <span class="dot"></span>
-            Halo, selamat datang di dunia kecilku! ✨
+  <!-- SECTION 1: BERANDA -->
+  <section class="journal-section bg-brown-grid" id="home">
+    <div class="journal-book">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="section-header">
+            <span class="section-num t-num1">01 — Beranda</span>
           </div>
-
-          <h1>Hai, saya <span class="name">Wulan</span> 🌷<br>kreator digital.</h1>
-
-          <p class="hero-copy">
-            saya pelajar Rekayasa Perangkat Lunak yang suka belajar membuat website,
+          <h1><span class="t-h1">Halo, Saya</span> <span class="name">Wulan Maharani</span><br><span class="t-role">Kreator Digital.</span></h1>
+          <p class="hero-copy t-herocopy">
+            Saya pelajar Rekayasa Perangkat Lunak yang suka belajar membuat website,
             mencoba hal baru, dan mengubah ide sederhana menjadi karya digital yang menarik.
           </p>
-
-          <!-- POP CHIPS / BADGE STIKER INTERAKTIF SAGE RAME -->
-          <div class="hero-pop-tags">
-            <span class="hero-pop-chip">💻 Web Dev</span>
-            <span class="hero-pop-chip">🎨 Design Enthusiast</span>
-            <span class="hero-pop-chip">✨ RPL Student</span>
-            <span class="hero-pop-chip">🌸 Creative Mind</span>
+          <div class="hero-tags">
+            <span class="tag-chip">💻 Web Dev</span>
+            <span class="tag-chip">🎨 Design</span>
+            <span class="tag-chip">✨ RPL Student</span>
           </div>
-
           <div class="hero-buttons">
-            <a class="btn btn-primary" href="#projects">Lihat Proyekku <span>↗</span></a>
-            <a class="btn btn-secondary" href="#about">Kenalan Yuk <span>♡</span></a>
+            <a class="btn btn-primary t-btnproj" href="#projects">Lihat Proyekku ↗</a>
+            <a class="btn btn-secondary t-btnabout" href="#about">Kenalan Yuk </a>
           </div>
+        </div>
 
-          <p class="mini-note">
-            ✦ Sedang bertumbuh, belajar, dan berkarya
-            <strong>sedikit demi sedikit.</strong>
+        <div class="polaroid-frame">
+          <div class="washi-tape"></div>
+          <div class="polaroid-img">
+            <img src="wulan.jpeg" alt="Foto Wulan Maharani" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="polaroid-fallback" style="display:none; height:100%; align-items:center; justify-content:center; color:#6e5c4f;">Foto Wulan</div>
+          </div>
+          <div class="polaroid-caption">Wulan Maharani</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: TENTANG SAYA -->
+  <section class="journal-section bg-cream-grid" id="about">
+    <div class="journal-book">
+      <div class="section-header">
+        <span class="section-num t-num2">02 — Profil</span>
+        <h2 class="section-title t-abouttitle">Tentang Saya</h2>
+      </div>
+      <div class="about-layout">
+        <div class="quote-box">
+          <p class="t-aboutdesc1">
+            "Saya adalah pelajar jurusan Rekayasa Perangkat Lunak (RPL) di SMK Negeri Manonjaya. Saya tertarik pada dunia teknologi, pengembangan website, dan desain digital."
           </p>
+          <p class="t-aboutdesc2">
+            Saya senang mengeksplorasi ide, belajar dari proses, dan mengembangkan kemampuan melalui tugas sekolah maupun proyek pribadi dengan penuh tanggung jawab.
+          </p>
+          <div style="font-family: 'Caveat', cursive; font-size: 1.3rem; color: var(--accent-brown); margin-top: 10px;">— Wulan Maharani</div>
         </div>
-
-        <div class="hero-art reveal delay-2" aria-label="Ilustrasi portofolio bertema taman Belanda">
-          <div class="sun"></div>
-          <div class="arch"></div>
-
-          <div class="portrait-frame">
-            <img src="wulan.jpeg" alt="Foto Wulan Maharani"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="portrait-fallback" style="display:none">
-              🌷<small>Foto Wulan</small>
-            </div>
-          </div>
-
-          <!-- POP STIKER BERANDA MELAYANG ESTETIK -->
-          <div class="sticker sticker-tulip" title="Tulip Pink">🌷</div>
-          <div class="sticker sticker-star" title="Sparkle Star">✦</div>
-          <div class="sticker sticker-note">
-            currently learning
-            <span>HTML • CSS • PHP</span>
-          </div>
-
-          <!-- STIKER MUSIK INTERAKTIF PLAY/PAUSE -->
-          <div class="sticker sticker-music" id="musicBtn" title="Klik untuk putar musik">
-            <span id="musicIcon">🎵</span> <span id="musicText">Dewa 19 - Kangen</span>
-          </div>
-
-          <!-- ELEMEN AUDIO MEMANGGIL FILE MP4 AUDIO DARI FOLDER -->
-          <audio id="bgMusic" loop preload="auto">
-            <source src="WhatsApp Audio 2026-11-07 at 09.32.09.mp4" type="audio/mp4">
-            Browser kamu tidak mendukung pemutar audio.
-          </audio>
+        <div class="sticky-notes-stack">
+          <div class="sticky-note note-brown t-note1">📌 Status: Pelajar SMK RPL</div>
+          <div class="sticky-note note-cream t-note2">💡 Fokus: Web Development & Desain</div>
+          <div class="sticky-note note-yellow t-note3">📍 Berdomisili di: Manonjaya, Tasikmalaya</div>
         </div>
-      </div>
-    </section>
-
-    <!-- TEKS BERJALAN -->
-    <div class="ticker" aria-label="Minat dan keahlian">
-      <div class="ticker-track">
-        <span>🌷 Web Development</span><b>✦</b>
-        <span>🎨 Digital Design</span><b>✦</b>
-        <span>💻 Rekayasa Perangkat Lunak</span><b>✦</b>
-        <span>🌼 Keep Learning</span><b>✦</b>
-        <span>🌷 Web Development</span><b>✦</b>
-        <span>🎨 Digital Design</span><b>✦</b>
-        <span>💻 Rekayasa Perangkat Lunak</span><b>✦</b>
-        <span>🌼 Keep Learning</span><b>✦</b>
       </div>
     </div>
+  </section>
 
-    <!-- TENTANG SAYA -->
-    <section id="about">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="kicker">A little about me</div>
-          <h2>Kenalan lebih dekat <span>denganku!</span></h2>
-          <p>Setiap karya dimulai dari rasa ingin tahu dan keberanian untuk mencoba.</p>
+  <!-- SECTION 3: KEAHLIAN & TOOLBOX -->
+  <section class="journal-section bg-brown-grid" id="skills">
+    <div class="journal-book">
+      <div class="section-header">
+        <span class="section-num t-num3">03 — Keahlian</span>
+        <h2 class="section-title t-skillstitle">Perkakas Andalan</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>HTML & CSS</h3>
+          <p class="t-s1">Membuat struktur halaman web & tampilan responsif.</p>
         </div>
-
-        <div class="about-grid">
-          <div class="about-art reveal">
-            <h3>Small steps, lovely progress.</h3>
-            <p>Belajar hal baru hari ini untuk membuat karya yang lebih baik esok hari.</p>
-            <div class="tiny-house"></div>
-            <div class="big-flower">🌼</div>
-          </div>
-
-          <div class="about-copy reveal delay-1">
-            <h3>Hai, saya Wulan Maharani 👋</h3>
-            <p>
-              Saya adalah pelajar jurusan Rekayasa Perangkat Lunak (RPL)
-              di SMK Negeri Manonjaya. Saya tertarik pada dunia teknologi,
-              pengembangan website, dan desain digital.
-            </p>
-            <p>
-              Saya senang mengeksplorasi ide, belajar dari proses, dan
-              mengembangkan kemampuan melalui tugas sekolah maupun proyek pribadi.
-              Saya berusaha menjadi pribadi yang disiplin, bertanggung jawab,
-              kreatif, dan mau terus berkembang.
-            </p>
-
-            <div class="info-pills">
-              <span class="pill">💻 Pelajar RPL</span>
-              <span class="pill">🎨 Suka desain</span>
-              <span class="pill">🌱 Terus belajar</span>
-              <span class="pill">🤝 Kerja tim</span>
-            </div>
-          </div>
+        <div class="skill-card">
+          <h3>PHP Native</h3>
+          <p class="t-s2">Logika pemrograman backend dan pemrosesan data.</p>
+        </div>
+        <div class="skill-card">
+          <h3>MySQL</h3>
+          <p class="t-s3">Penyimpanan dan manajemen database terstruktur.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Canva & Desain</h3>
+          <p class="t-s4">Penyusunan materi presentasi & profil visual.</p>
+        </div>
+        <div class="skill-card">
+          <h3 class="t-s5title">Kerja Tim</h3>
+          <p class="t-s5">Kolaborasi dan komunikasi yang baik dalam proyek.</p>
+        </div>
+        <div class="skill-card">
+          <h3 class="t-s6title">Kreativitas</h3>
+          <p class="t-s6">Mencari ide segar dan solusi dalam perancangan.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- KEAHLIAN -->
-    <section class="skills" id="skills">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="kicker">My little toolbox</div>
-          <h2>Hal yang sedang <span>saya kuasai</span></h2>
-          <p>Kemampuan yang terus saya latih lewat praktik dan pengalaman.</p>
-        </div>
-
-        <div class="skills-grid">
-          <article class="skill-card reveal">
-            <div class="skill-icon">🌐</div>
-            <h3>HTML & CSS</h3>
-            <p>Membuat struktur halaman website dan mengatur tampilannya agar rapi, menarik, serta responsif.</p>
-          </article>
-
-          <article class="skill-card reveal delay-1">
-            <div class="skill-icon">🐘</div>
-            <h3>PHP Native</h3>
-            <p>Mempelajari logika pemrograman dan membuat fitur website yang dapat memproses data.</p>
-          </article>
-
-          <article class="skill-card reveal delay-2">
-            <div class="skill-icon">🗃️</div>
-            <h3>MySQL</h3>
-            <p>Menyimpan, mengelola, dan menampilkan data menggunakan database.</p>
-          </article>
-
-          <article class="skill-card reveal">
-            <div class="skill-icon">🎨</div>
-            <h3>Canva & Desain</h3>
-            <p>Menyusun desain presentasi, profil perusahaan, dan konten visual yang informatif.</p>
-          </article>
-
-          <article class="skill-card reveal delay-1">
-            <div class="skill-icon">🤝</div>
-            <h3>Kerja Sama Tim</h3>
-            <p>Berkomunikasi, berbagi tugas, dan berkolaborasi saat mengerjakan proyek bersama.</p>
-          </article>
-
-          <article class="skill-card reveal delay-2">
-            <div class="skill-icon">💡</div>
-            <h3>Kreativitas</h3>
-            <p>Mencari ide dan mencoba solusi baru saat merancang desain maupun menyelesaikan tugas.</p>
-          </article>
-        </div>
+  <!-- SECTION 4: PROYEK PILIHAN -->
+  <section class="journal-section bg-cream-grid" id="projects">
+    <div style="width: min(900px, 95%);">
+      <div class="section-header" style="text-align: center; margin-bottom: 16px;">
+        <span class="section-num t-num4">04 — Karya Digital</span>
+        <h2 class="section-title t-projtitle">Arsip Proyek Pilihan</h2>
       </div>
-    </section>
-
-    <!-- PROYEK -->
-    <section id="projects">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="kicker">Made with curiosity</div>
-          <h2>Beberapa <span>proyek pilihanku</span></h2>
-          <p>Ini adalah beberapa karya yang saya buat sambil belajar dan mengembangkan kemampuan.</p>
-        </div>
-
+      <div class="corkboard">
         <div class="projects-grid">
-          <article class="project-card reveal">
-            <div class="project-visual visual-web">
-              <span class="visual-emoji">🌐</span>
+          
+          <article class="project-card">
+            <div class="pin"></div>
+            <div class="project-visual">
+              <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" alt="Web Redesign">
             </div>
-            <div class="project-body">
+            <div class="project-body" style="padding: 0;">
               <span class="project-tag">Website • Redesign</span>
-              <h3>Redesain Website Access Media</h3>
-              <p>Konsep ulang tampilan website dengan gaya modern, navigasi yang lebih jelas, serta perpaduan warna yang segar.</p>
-              <a class="project-link" href="#contact">Tanya tentang proyek <span>↗</span></a>
+              <h3 class="t-p1title">Redesain Website Access Media</h3>
+              <p class="t-p1desc">Konsep ulang tampilan website dengan gaya modern dan navigasi jelas.</p>
+              <a class="project-link t-askproj" href="#contact">Tanya proyek ↗</a>
             </div>
           </article>
 
-          <article class="project-card reveal delay-1">
-            <div class="project-visual visual-laundry">
-              <span class="visual-emoji">🧺</span>
+          <article class="project-card">
+            <div class="pin"></div>
+            <div class="project-visual">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Database Laundry">
             </div>
-            <div class="project-body">
+            <div class="project-body" style="padding: 0;">
               <span class="project-tag">PHP • MySQL</span>
-              <h3>Aplikasi Manajemen Laundry</h3>
-              <p>Aplikasi latihan untuk mengelola data pelanggan, paket laundry, transaksi, dan laporan menggunakan PHP Native serta MySQL.</p>
-              <a class="project-link" href="#contact">Tanya tentang proyek <span>↗</span></a>
+              <h3 class="t-p2title">Aplikasi Manajemen Laundry</h3>
+              <p class="t-p2desc">Mengelola data pelanggan, paket laundry, transaksi, dan laporan.</p>
+              <a class="project-link t-askproj" href="#contact">Tanya proyek ↗</a>
             </div>
           </article>
 
-          <article class="project-card reveal delay-2">
-            <div class="project-visual visual-design">
-              <span class="visual-emoji">🖌️</span>
+          <article class="project-card">
+            <div class="pin"></div>
+            <div class="project-visual">
+              <img src="https://images.unsplash.com/photo-1542744094-24638eff58bb?auto=format&fit=crop&w=600&q=80" alt="Desain Canva">
             </div>
-            <div class="project-body">
+            <div class="project-body" style="padding: 0;">
               <span class="project-tag">Canva • Design</span>
-              <h3>Desain Profil Perusahaan</h3>
-              <p>Menyusun materi profil perusahaan dalam bentuk presentasi yang ringkas, teratur, dan mudah dipahami.</p>
-              <a class="project-link" href="#contact">Tanya tentang proyek <span>↗</span></a>
+              <h3 class="t-p3title">Desain Profil Perusahaan</h3>
+              <p class="t-p3desc">Menyusun materi profil perusahaan dalam presentasi ringkas.</p>
+              <a class="project-link t-askproj" href="#contact">Tanya proyek ↗</a>
             </div>
           </article>
+
         </div>
       </div>
-    </section>
-
-    <!-- PENDIDIKAN -->
-    <section class="education" id="education">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="kicker">My journey</div>
-          <h2>Pendidikan & <span>pengalaman</span></h2>
-          <p>Perjalanan belajar yang membentuk minat dan kemampuanku.</p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item reveal">
-            <span class="timeline-dot"></span>
-            <div class="timeline-card">
-              <small>Pendidikan saat ini</small>
-              <h3>SMK Negeri Manonjaya — Rekayasa Perangkat Lunak</h3>
-              <p>Mempelajari dasar pemrograman, pembuatan website, pengelolaan database, dan perancangan solusi digital melalui pembelajaran serta proyek sekolah.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal delay-1">
-            <span class="timeline-dot"></span>
-            <div class="timeline-card">
-              <small>Kegiatan & kreativitas</small>
-              <h3>Pramuka, Seni Tari, dan Poster Digital</h3>
-              <p>Mengikuti kegiatan Pramuka, seni tari, seni modern, serta kegiatan lomba poster dan poster digital untuk melatih kreativitas dan kerja sama.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal delay-2">
-            <span class="timeline-dot"></span>
-            <div class="timeline-card">
-              <small>Pengembangan diri</small>
-              <h3>Belajar lewat proyek</h3>
-              <p>Terus berlatih membuat aplikasi, merancang tampilan website, dan menyusun desain digital untuk menambah pengalaman serta kemampuan.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PENGALAMAN PKL -->
-    <section id="experience">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="kicker">My Internship Journey</div>
-          <h2>Pengalaman <span>PKL-ku</span></h2>
-          <p>Belajar dan berkembang melalui pengalaman langsung di dunia kerja.</p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item reveal">
-            <span class="timeline-dot"></span>
-            <div class="timeline-card">
-              <small>Praktik Kerja Lapangan (PKL)</small>
-              <h3>Access Media Tasikmalaya</h3>
-              <p>
-                Saya mendapatkan pengalaman Praktik Kerja Lapangan (PKL)
-                di Access Media Tasikmalaya. Selama kegiatan PKL, saya
-                belajar mengenal lingkungan kerja secara langsung,
-                meningkatkan kedisiplinan, tanggung jawab, serta kemampuan
-                berkomunikasi dan bekerja sama.
-              </p>
-              <p>
-                Salah satu pengalaman saya adalah membuat desain profil
-                perusahaan menggunakan Canva sebagai media informasi
-                dan presentasi perusahaan. Pengalaman ini membantu saya
-                mengembangkan kreativitas, keterampilan desain digital,
-                dan kepercayaan diri saat mempresentasikan hasil karya.
-              </p>
-              <div class="info-pills">
-                <span class="pill">💼 Pengalaman PKL</span>
-                <span class="pill">🎨 Canva</span>
-                <span class="pill">🤝 Komunikasi</span>
-                <span class="pill">💡 Kreativitas</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- KONTAK -->
-    <section id="contact">
-      <div class="container">
-        <div class="contact-card reveal">
-          <div class="kicker">Say hello 🌷</div>
-          <h2>Punya ide atau ingin ngobrol soal proyek?</h2>
-          <p>Terima kasih sudah mampir ke portofolioku. Yuk, terhubung dan berbagi ide baik!</p>
-          <a class="btn" href="https://wa.me/6283191552752?text=Halo%20Wulan%2C%20saya%20tertarik%20dengan%20portofolio%20kamu." target="_blank" rel="noopener noreferrer">
-            💬 Hubungi saya lewat WhatsApp <span>↗</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      Dibuat dengan <span class="footer-flower">🌷</span>
-      dan banyak rasa ingin tahu oleh <strong>Wulan Maharani</strong> ·
-      <span id="year"></span>
     </div>
-  </footer>
+  </section>
 
-  <!-- FLOATING POP ICONS PINTASAN RAME DI POJOK BAWAH -->
-  <div class="pop-icons-wrapper" aria-label="Pintasan Media Sosial">
-    <a href="https://wa.me/6283191552752" target="_blank" rel="noopener noreferrer" class="pop-icon" data-tooltip="WhatsApp 💬">
-      💬
-    </a>
-    <a href="https://www.instagram.com/wwln_16?rpxt=MTRiMHNtcWpjczBo" target="_blank" rel="noopener noreferrer" class="pop-icon" data-tooltip="Instagram 📸">
-      📸
-    </a>
-    <a href="https://youtube.com/@wulandari-pu4do?si=sEzvUH8Df5AMElTK" target="_blank" rel="noopener noreferrer" class="pop-icon" data-tooltip="YouTube 📹">
-      📹
-    </a>
-    <a href="https://www.facebook.com/profile.php?id=61593825338549" target="_blank" rel="noopener noreferrer" class="pop-icon" data-tooltip="Facebook 🌐">
-      🌐
-    </a>
-    <a href="#home" class="pop-icon" data-tooltip="Ke Atas 🚀">
-      🚀
-    </a>
-  </div>
+  <!-- SECTION 5: PENDIDIKAN & PKL -->
+  <section class="journal-section bg-brown-grid" id="education">
+    <div class="journal-book">
+      <div class="section-header">
+        <span class="section-num t-num5">05 — Perjalanan</span>
+        <h2 class="section-title t-edutitle">Pendidikan & Pengalaman PKL</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-card">
+            <small class="t-edusmall1">Pendidikan Saat Ini</small>
+            <h3>SMK Negeri Manonjaya — Rekayasa Perangkat Lunak</h3>
+            <p class="t-edudesc1">Mempelajari dasar pemrograman, pembuatan website, dan pengelolaan database.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" style="margin-top: 18px;">
+          <span class="timeline-dot"></span>
+          <div class="timeline-card">
+            <small class="t-edusmall2">Praktik Kerja Lapangan (PKL)</small>
+            <h3>Access Media Tasikmalaya</h3>
+            <p class="t-edudesc2">
+              Mendapatkan pengalaman langsung di dunia kerja, meningkatkan disiplin, komunikasi, serta membuat desain profil perusahaan menggunakan Canva.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: KONTAK -->
+  <section class="journal-section bg-cream-grid" id="contact">
+    <div class="journal-book">
+      <div class="contact-box">
+        <h2 class="t-ctitle">Katakan Halo 💌</h2>
+        <p class="t-cdesc">Punya ide atau ingin ngobrol seputar proyek? Yuk terhubung lewat WhatsApp!</p>
+        <a class="btn btn-primary t-cbtn" href="https://wa.me/6283191552752?text=Halo%20Wulan%2C%20saya%20tertarik%20dengan%20portofolio%20kamu." target="_blank" rel="noopener noreferrer">
+          💬 Hubungi Saya di WhatsApp ↗
+        </a>
+      </div>
+      <footer style="text-align: center; margin-top: 30px; font-size: 0.78rem; color: var(--text-muted);">
+        <span class="t-footer">Dibuat dengan penuh cinta oleh</span> <strong>Wulan Maharani </strong> · <span id="year"></span>
+      </footer>
+    </div>
+  </section>
 
   <script>
-    // Menu navigasi untuk layar HP
-    const menuBtn = document.getElementById('menuBtn');
-    const navLinks = document.getElementById('navLinks');
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    menuBtn.addEventListener('click', () => {
-      const opened = navLinks.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(opened));
-      menuBtn.textContent = opened ? '✕' : '☰';
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        menuBtn.textContent = '☰';
-      });
-    });
-
-    // Tombol tema terang/gelap
-    const themeToggle = document.getElementById('themeToggle');
-
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-
-      const dark = document.body.classList.contains('dark');
-      themeToggle.textContent = dark ? '☀' : '☾';
-
-      document.querySelector('meta[name="theme-color"]').setAttribute(
-        'content',
-        dark ? '#202c28' : '#fff4e8'
-      );
-    });
-
-    // Animasi elemen muncul ketika discroll
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+    // Animasi Scroll (Intersection Observer untuk efek muncul saat di-scroll)
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          entry.target.classList.add('appear');
         }
       });
-    }, { threshold: 0.13 });
+    }, { threshold: 0.15 });
 
-    document.querySelectorAll('.reveal').forEach(el => {
-      revealObserver.observe(el);
+    document.querySelectorAll('.journal-book').forEach(book => {
+      observer.observe(book);
     });
 
-    // Kelopak bunga dekoratif yang jatuh di area hero
-    const petals = document.getElementById('petals');
-    const petalSymbols = ['✿', '❀', '🌸', '·'];
+    // Mobile Hamburger Toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
 
-    for (let i = 0; i < 18; i++) {
-      const petal = document.createElement('span');
-      petal.className = 'petal';
-
-      petal.textContent = petalSymbols[
-        Math.floor(Math.random() * petalSymbols.length)
-      ];
-
-      petal.style.left = Math.random() * 100 + '%';
-      petal.style.animationDuration = (8 + Math.random() * 10) + 's';
-      petal.style.animationDelay = (-Math.random() * 15) + 's';
-      petal.style.fontSize = (12 + Math.random() * 15) + 'px';
-
-      petals.appendChild(petal);
-    }
-
-    // FITUR INTERAKTIF PUTAR / PAUSE MUSIK DENGAN STIKER
-    const musicBtn = document.getElementById('musicBtn');
-    const bgMusic = document.getElementById('bgMusic');
-    const musicIcon = document.getElementById('musicIcon');
-    const musicText = document.getElementById('musicText');
-
-    if (musicBtn && bgMusic) {
-      musicBtn.addEventListener('click', () => {
-        if (bgMusic.paused) {
-          bgMusic.play();
-          musicIcon.textContent = '🔊';
-          musicText.textContent = 'Playing: Dewa 19 - Kangen';
-          musicBtn.classList.add('playing');
-        } else {
-          bgMusic.pause();
-          musicIcon.textContent = '🎵';
-          musicText.textContent = 'Dewa 19 - Kangen';
-          musicBtn.classList.remove('playing');
-        }
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
       });
+    });
+
+    // Simple Translate (ID / EN) dengan Indikator Warna Tombol
+    let currentLang = 'id';
+    const dict = {
+      id: {
+        home: "Beranda", about: "Tentang", skills: "Keahlian", projects: "Proyek", edu: "PKL", contact: "Kontak",
+        num1: "01 — Beranda", h1: "Halo, Saya", role: "Kreator Digital.",
+        herocopy: "Saya pelajar Rekayasa Perangkat Lunak yang suka belajar membuat website, mencoba hal baru, dan mengubah ide sederhana menjadi karya digital yang menarik.",
+        btnproj: "Lihat Proyekku ↗", btnabout: "Kenalan Yuk ",
+        num2: "02 — Profil", abouttitle: "Tentang Saya",
+        aboutdesc1: "\"Saya adalah pelajar jurusan Rekayasa Perangkat Lunak (RPL) di SMK Negeri Manonjaya. Saya tertarik pada dunia teknologi, pengembangan website, dan desain digital.\"",
+        aboutdesc2: "Saya senang mengeksplorasi ide, belajar dari proses, dan mengembangkan kemampuan melalui tugas sekolah maupun proyek pribadi dengan penuh tanggung jawab.",
+        note1: "📌 Status: Pelajar SMK RPL", note2: "💡 Fokus: Web Development & Desain", note3: "📍 Berdomisili di: Manonjaya, Tasikmalaya",
+        num3: "03 — Keahlian", skillstitle: "Perkakas Andalan",
+        s1: "Membuat struktur halaman web & tampilan responsif.", s2: "Logika pemrograman backend dan pemrosesan data.", s3: "Penyimpanan dan manajemen database terstruktur.", s4: "Penyusunan materi presentasi & profil visual.",
+        s5title: "Kerja Tim", s5: "Kolaborasi dan komunikasi yang baik dalam proyek.", s6title: "Kreativitas", s6: "Mencari ide segar dan solusi dalam perancangan.",
+        num4: "04 — Karya Digital", projtitle: "Arsip Proyek Pilihan",
+        p1title: "Redesain Website Access Media", p1desc: "Konsep ulang tampilan website dengan gaya modern dan navigasi jelas.",
+        p2title: "Aplikasi Manajemen Laundry", p2desc: "Mengelola data pelanggan, paket laundry, transaksi, dan laporan.",
+        p3title: "Desain Profil Perusahaan", p3desc: "Menyusun materi profil perusahaan dalam presentasi ringkas.",
+        askproj: "Tanya proyek ↗",
+        num5: "05 — Perjalanan", edutitle: "Pendidikan & Pengalaman PKL",
+        edusmall1: "Pendidikan Saat Ini", edudesc1: "Mempelajari dasar pemrograman, pembuatan website, dan pengelolaan database.",
+        edusmall2: "Praktik Kerja Lapangan (PKL)", edudesc2: "Mendapatkan pengalaman langsung di dunia kerja, meningkatkan disiplin, komunikasi, serta membuat desain profil perusahaan menggunakan Canva.",
+        ctitle: "Katakan Halo 💌", cdesc: "Punya ide atau ingin ngobrol seputar proyek? Yuk terhubung lewat WhatsApp!", cbtn: "💬 Hubungi Saya di WhatsApp ↗",
+        footer: "Dibuat dengan penuh cinta oleh",
+        langBtnText: "ID (Indonesia)"
+      },
+      en: {
+        home: "Home", about: "About", skills: "Skills", projects: "Projects", edu: "Internship", contact: "Contact",
+        num1: "01 — Home", h1: "Hello, I am", role: "Digital Creator.",
+        herocopy: "I am a Software Engineering student who loves learning web development, trying new things, and turning simple ideas into attractive digital works.",
+        btnproj: "View Projects ↗", btnabout: "Get to Know ",
+        num2: "02 — Profile", abouttitle: "About Me",
+        aboutdesc1: "\"I am a Software Engineering (RPL) student at SMK Negeri Manonjaya. I am interested in technology, web development, and digital design.\"",
+        aboutdesc2: "I enjoy exploring ideas, learning from the process, and developing my skills through school assignments and personal projects with full responsibility.",
+        note1: "📌 Status: Vocational RPL Student", note2: "💡 Focus: Web Dev & Design", note3: "📍 Based in: Manonjaya, Tasikmalaya",
+        num3: "03 — Skills", skillstitle: "Main Toolbox",
+        s1: "Creating web page structures & responsive layouts.", s2: "Backend programming logic and data processing.", s3: "Structured database storage and management.", s4: "Preparing presentation materials & visual profiles.",
+        s5title: "Teamwork", s5: "Good collaboration and communication in projects.", s6title: "Creativity", s6: "Finding fresh ideas and solutions in design.",
+        num4: "04 — Digital Works", projtitle: "Selected Project Archive",
+        p1title: "Access Media Website Redesign", p1desc: "Redesigning website appearance with modern style and clear navigation.",
+        p2title: "Laundry Management App", p2desc: "Managing customer data, laundry packages, transactions, and reports.",
+        p3title: "Company Profile Design", p3desc: "Structuring company profile materials in a concise presentation.",
+        askproj: "Inquire project ↗",
+        num5: "05 — Journey", edutitle: "Education & Internship",
+        edusmall1: "Current Education", edudesc1: "Learning programming fundamentals, web creation, and database management.",
+        edusmall2: "Field Internship (PKL)", edudesc2: "Gained direct workplace experience, improved discipline, communication, and designed company profiles using Canva.",
+        ctitle: "Say hello 💌", cdesc: "Have an idea or want to chat about a project? Let's connect via WhatsApp!", cbtn: "💬 Contact Me via WhatsApp ↗",
+        footer: "Made with love by",
+        langBtnText: "EN (English)"
+      }
+    };
+
+    const langToggleBtn = document.getElementById('langToggle');
+
+    function switchLanguage() {
+      currentLang = currentLang === 'id' ? 'en' : 'id';
+      const t = dict[currentLang];
+      
+      if (currentLang === 'id') {
+        langToggleBtn.className = "lang-btn mode-id";
+      } else {
+        langToggleBtn.className = "lang-btn mode-en";
+      }
+      langToggleBtn.textContent = t.langBtnText;
+      
+      document.querySelector('.t-home').textContent = t.home;
+      document.querySelector('.t-about').textContent = t.about;
+      document.querySelector('.t-skills').textContent = t.skills;
+      document.querySelector('.t-projects').textContent = t.projects;
+      document.querySelector('.t-edu').textContent = t.edu;
+      document.querySelector('.t-contact').textContent = t.contact;
+
+      document.querySelector('.t-num1').textContent = t.num1;
+      document.querySelector('.t-h1').textContent = t.h1;
+      document.querySelector('.t-role').textContent = t.role;
+      document.querySelector('.t-herocopy').textContent = t.herocopy;
+      document.querySelector('.t-btnproj').textContent = t.btnproj;
+      document.querySelector('.t-btnabout').textContent = t.btnabout;
+
+      document.querySelector('.t-num2').textContent = t.num2;
+      document.querySelector('.t-abouttitle').textContent = t.abouttitle;
+      document.querySelector('.t-aboutdesc1').textContent = t.aboutdesc1;
+      document.querySelector('.t-aboutdesc2').textContent = t.aboutdesc2;
+      document.querySelector('.t-note1').textContent = t.note1;
+      document.querySelector('.t-note2').textContent = t.note2;
+      document.querySelector('.t-note3').textContent = t.note3;
+
+      document.querySelector('.t-num3').textContent = t.num3;
+      document.querySelector('.t-skillstitle').textContent = t.skillstitle;
+      document.querySelector('.t-s1').textContent = t.s1;
+      document.querySelector('.t-s2').textContent = t.s2;
+      document.querySelector('.t-s3').textContent = t.s3;
+      document.querySelector('.t-s4').textContent = t.s4;
+      document.querySelector('.t-s5title').textContent = t.s5title;
+      document.querySelector('.t-s5').textContent = t.s5;
+      document.querySelector('.t-s6title').textContent = t.s6title;
+      document.querySelector('.t-s6').textContent = t.s6;
+
+      document.querySelector('.t-num4').textContent = t.num4;
+      document.querySelector('.t-projtitle').textContent = t.projtitle;
+      document.querySelector('.t-p1title').textContent = t.p1title;
+      document.querySelector('.t-p1desc').textContent = t.p1desc;
+      document.querySelector('.t-p2title').textContent = t.p2title;
+      document.querySelector('.t-p2desc').textContent = t.p2desc;
+      document.querySelector('.t-p3title').textContent = t.p3title;
+      document.querySelector('.t-p3desc').textContent = t.p3desc;
+      document.querySelectorAll('.t-askproj').forEach(el => el.textContent = t.askproj);
+
+      document.querySelector('.t-num5').textContent = t.num5;
+      document.querySelector('.t-edutitle').textContent = t.edutitle;
+      document.querySelector('.t-edusmall1').textContent = t.edusmall1;
+      document.querySelector('.t-edudesc1').textContent = t.edudesc1;
+      document.querySelector('.t-edusmall2').textContent = t.edusmall2;
+      document.querySelector('.t-edudesc2').textContent = t.edudesc2;
+
+      document.querySelector('.t-ctitle').textContent = t.ctitle;
+      document.querySelector('.t-cdesc').textContent = t.cdesc;
+      document.querySelector('.t-cbtn').textContent = t.cbtn;
+      document.querySelector('.t-footer').textContent = t.footer;
     }
 
-    // Tahun otomatis di footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+    langToggleBtn.addEventListener('click', switchLanguage);
   </script>
 </body>
 </html>
