@@ -127,6 +127,11 @@
       color: var(--zine-yellow);
     }
 
+    .nav-links a.active {
+      background: rgba(244, 220, 88, 0.25);
+      color: var(--zine-yellow);
+    }
+
     /* TOMBOL TOGGLE SWITCH ID / EN */
     .lang-switch {
       display: inline-flex;
@@ -154,7 +159,6 @@
 
     .lang-switch.en .switch-handle {
       transform: translateX(32px);
-      background: #ffffff;
     }
 
     .lang-labels {
@@ -1078,7 +1082,7 @@
       <div class="projects-board">
         <div class="projects-grid">
           <!-- Proyek 1 -->
-          <article class="project-card" onclick="openProjectModal('Redesain Website Access Media', 'Website • Redesign', 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80', 'Konsep ulang tampilan website Access Media dengan gaya modern, navigasi yang lebih jelas, serta penerapan palet warna khusus dan tata letak responsif untuk pengalaman pengguna terbaik.', 'Proyek ini dikerjakan sebagai bagian dari inisiatif peningkatan branding perusahaan. Tantangan utamanya adalah menyatukan struktur informasi yang padat ke dalam navigasi tunggal (SPA) yang bersih, interaktif, dan nyaman diakses dari perangkat seluler maupun desktop.')">
+          <article class="project-card" onclick="openProjectModal('p1')">
             <div class="pin-red-mini"></div>
             <div class="project-visual">
               <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" alt="Web Redesign">
@@ -1092,7 +1096,7 @@
           </article>
 
           <!-- Proyek 2 -->
-          <article class="project-card" onclick="openProjectModal('Aplikasi Manajemen Laundry', 'PHP • MySQL', 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80', 'Sistem Point of Sales (POS) dan manajemen laundry lengkap yang dibangun menggunakan PHP Native dan basis data MySQL. Fitur meliputi pengelolaan data pelanggan, manajemen paket cuci, pencatatan transaksi kasir, hingga rekapitulasi laporan harian.', 'Aplikasi ini dirancang dari nol untuk mengatasi masalah pencatatan manual di usaha laundry lokal. Saya mendesain struktur database relasional dan membedakan hak akses ketat antara Admin dan Kasir guna mengamankan rekapitulasi keuangan harian.')">
+          <article class="project-card" onclick="openProjectModal('p2')">
             <div class="pin-red-mini"></div>
             <div class="project-visual">
               <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Database Laundry">
@@ -1106,7 +1110,7 @@
           </article>
 
           <!-- Proyek 3 -->
-          <article class="project-card" onclick="openProjectModal('Desain Profil Perusahaan', 'Canva • Design', 'https://images.unsplash.com/photo-1542744094-24638eff58bb?auto=format&fit=crop&w=600&q=80', 'Penyusunan materi presentasi dan profil visual perusahaan yang elegan dan profesional menggunakan platform Canva, disesuaikan dengan identitas visual merek untuk keperluan promosi dan portofolio bisnis.', 'Dalam proyek ini, fokus utamanya adalah menciptakan harmoni visual antara tipografi, pemilihan palet warna korporat, dan penyusunan informasi yang ringkas agar mudah dipahami oleh klien dalam waktu singkat.')">
+          <article class="project-card" onclick="openProjectModal('p3')">
             <div class="pin-red-mini"></div>
             <div class="project-visual">
               <img src="https://images.unsplash.com/photo-1542744094-24638eff58bb?auto=format&fit=crop&w=600&q=80" alt="Desain Canva">
@@ -1222,6 +1226,30 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    const pageSections = Array.from(document.querySelectorAll('section[id]'));
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    function updateActiveNavigation() {
+      const currentPosition = window.scrollY + 120;
+      let activeSection = pageSections[0];
+
+      pageSections.forEach(section => {
+        if (section.offsetTop <= currentPosition) {
+          activeSection = section;
+        }
+      });
+
+      navItems.forEach(link => {
+        const isActive = link.getAttribute('href') === '#' + activeSection.id;
+        link.classList.toggle('active', isActive);
+        if (isActive) {
+          link.setAttribute('aria-current', 'location');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
+
     // Efek Navbar Berubah Saat Di-scroll
     window.addEventListener('scroll', () => {
       const header = document.getElementById('mainHeader');
@@ -1230,7 +1258,9 @@
       } else {
         header.classList.remove('scrolled');
       }
+      updateActiveNavigation();
     });
+    updateActiveNavigation();
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1277,13 +1307,21 @@
     const modalTitle = document.getElementById('modalTitle');
     const modalDesc = document.getElementById('modalDesc');
     const modalStory = document.getElementById('modalStory');
+    let activeProject = null;
 
-    function openProjectModal(title, tag, imgSrc, desc, story) {
-      modalTitle.textContent = title;
-      modalTag.textContent = tag;
-      modalImg.src = imgSrc;
-      modalDesc.textContent = desc;
-      modalStory.textContent = story;
+    function renderProjectModal() {
+      const project = dict[currentLang].projectDetails[activeProject];
+      modalTitle.textContent = project.title;
+      modalTag.textContent = project.tag;
+      modalImg.src = project.img;
+      modalDesc.textContent = project.desc;
+      modalStory.textContent = project.story;
+      document.getElementById('modalActionBtn').textContent = dict[currentLang].projectAction;
+    }
+
+    function openProjectModal(projectKey) {
+      activeProject = projectKey;
+      renderProjectModal();
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
@@ -1291,6 +1329,7 @@
     function closeModalBtn() {
       modal.classList.remove('active');
       document.body.style.overflow = 'auto';
+      activeProject = null;
     }
 
     function closeProjectModal(event) {
@@ -1319,6 +1358,12 @@
         p2title: "Aplikasi Manajemen Laundry", p2desc: "Mengelola data pelanggan, paket laundry, transaksi, dan laporan.",
         p3title: "Desain Profil Perusahaan", p3desc: "Menyusun materi profil perusahaan dalam presentasi ringkas.",
         askproj: "Klik untuk baca cerita ↗",
+        projectAction: "Tanya Proyek Ini di WhatsApp ↗",
+        projectDetails: {
+          p1: { title: "Redesain Website Access Media", tag: "Website • Redesign", img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80", desc: "Konsep ulang tampilan website Access Media dengan gaya modern, navigasi yang lebih jelas, serta penerapan palet warna khusus dan tata letak responsif untuk pengalaman pengguna terbaik.", story: "Proyek ini dikerjakan sebagai bagian dari inisiatif peningkatan branding perusahaan. Tantangan utamanya adalah menyatukan struktur informasi yang padat ke dalam navigasi tunggal (SPA) yang bersih, interaktif, dan nyaman diakses dari perangkat seluler maupun desktop." },
+          p2: { title: "Aplikasi Manajemen Laundry", tag: "PHP • MySQL", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80", desc: "Sistem Point of Sales (POS) dan manajemen laundry lengkap yang dibangun menggunakan PHP Native dan basis data MySQL. Fitur meliputi pengelolaan data pelanggan, manajemen paket cuci, pencatatan transaksi kasir, hingga rekapitulasi laporan harian.", story: "Aplikasi ini dirancang dari nol untuk mengatasi masalah pencatatan manual di usaha laundry lokal. Saya mendesain struktur database relasional dan membedakan hak akses ketat antara Admin dan Kasir guna mengamankan rekapitulasi keuangan harian." },
+          p3: { title: "Desain Profil Perusahaan", tag: "Canva • Design", img: "https://images.unsplash.com/photo-1542744094-24638eff58bb?auto=format&fit=crop&w=600&q=80", desc: "Penyusunan materi presentasi dan profil visual perusahaan yang elegan dan profesional menggunakan platform Canva, disesuaikan dengan identitas visual merek untuk keperluan promosi dan portofolio bisnis.", story: "Dalam proyek ini, fokus utamanya adalah menciptakan harmoni visual antara tipografi, pemilihan palet warna korporat, dan penyusunan informasi yang ringkas agar mudah dipahami oleh klien dalam waktu singkat." }
+        },
         num5: "05 — EXPERIENCE & EDUCATION", edutitle: "Pendidikan & Pengalaman PKL",
         edusmall1: "Pendidikan Saat Ini", edutitle1: "SMK Negeri Manonjaya — Rekayasa Perangkat Lunak",
         edudesc1: "Menempuh studi dijurusan Rekayasa Perangkat Lunak memberikan saya fondasi yang kuat dalam memahami logika berpikir komputasional, algoritma pemrograman, perancangan struktur basis data, hingga teknik pengembangan aplikasi berbasis web secara menyeluruh. Di sini, setiap tugas dan praktikum selalu memotivasi saya untuk terus bereksperimen dengan kode.",
@@ -1345,6 +1390,12 @@
         p2title: "Laundry Management App", p2desc: "Managing customer data, laundry packages, transactions, and reports.",
         p3title: "Company Profile Design", p3desc: "Structuring company profile materials in a concise presentation.",
         askproj: "Click to read story ↗",
+        projectAction: "Ask About This Project on WhatsApp ↗",
+        projectDetails: {
+          p1: { title: "Access Media Website Redesign", tag: "Website • Redesign", img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80", desc: "A refreshed Access Media website concept with a modern style, clearer navigation, a custom color palette, and a responsive layout for a better user experience.", story: "This project was part of an initiative to strengthen the company's branding. The main challenge was bringing dense information into a clean, interactive single-page application (SPA) that works comfortably on both mobile and desktop devices." },
+          p2: { title: "Laundry Management App", tag: "PHP • MySQL", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80", desc: "A complete point-of-sale (POS) and laundry management system built with native PHP and MySQL. Features include customer and laundry package management, cashier transactions, and daily report summaries.", story: "The application was designed from scratch to replace manual record-keeping at a local laundry business. I designed a relational database and separated Admin and Cashier permissions to help protect daily financial records." },
+          p3: { title: "Company Profile Design", tag: "Canva • Design", img: "https://images.unsplash.com/photo-1542744094-24638eff58bb?auto=format&fit=crop&w=600&q=80", desc: "Elegant, professional presentation materials and a visual company profile created with Canva, tailored to the brand identity for promotional and business portfolio use.", story: "The main focus of this project was to create visual harmony between typography, the corporate color palette, and concise information so clients could understand it quickly." }
+        },
         num5: "05 — EXPERIENCE & EDUCATION", edutitle: "Education & Internship",
         edusmall1: "Current Education", edutitle1: "SMK Negeri Manonjaya — Software Engineering",
         edudesc1: "Studying Software Engineering gave me a strong foundation in computational thinking, programming algorithms, database design, and web development techniques. Here, every assignment motivates me to experiment more with code.",
@@ -1416,6 +1467,7 @@
       document.querySelector('.t-p3title').textContent = t.p3title;
       document.querySelector('.t-p3desc').textContent = t.p3desc;
       document.querySelectorAll('.t-askproj').forEach(el => el.textContent = t.askproj);
+      if (activeProject) renderProjectModal();
 
       document.querySelector('.t-num5').textContent = t.num5;
       document.querySelector('.t-edutitle').textContent = t.edutitle;
