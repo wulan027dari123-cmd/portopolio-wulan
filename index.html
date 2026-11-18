@@ -3,30 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#241a14">
-  <meta name="description" content="Portofolio Wulan Maharani - Dark Academia Vintage Scrapbook Portofolio.">
+  <meta name="theme-color" content="#11382b">
+  <meta name="description" content="Portofolio Wulan Maharani - Zine & Craft Scrapbook Portofolio.">
   <title id="pageTitle">Wulan Maharani — Portofolio</title>
 
-  <!-- Favicon Jurnal Inisial W -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%236b4c35%22>W</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23ffeb3b%22 stroke=%22%2311382b%22 stroke-width=%225%22/><text x=%2250%22 y=%2268%22 font-size=%2255%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22%2311382b%22>W</text></svg>">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-brown: #2a1d15;
-      --bg-cream: #f4ecdf;
-      --book-page: #fbf7f0;
-      --page-line: #e6dec9;
-      --text-main: #362a22;
-      --text-muted: #6e5c4f;
-      --accent-brown: #6b4c35;
-      --accent-soft: #ebdccf;
-      --tape-yellow: rgba(234, 212, 138, 0.85);
-      --cork-bg: #7a4928;
-      --shadow-book: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --bg-cutting-green: #11382b;
+      --bg-zine-dark: #0b261d;
+      --paper-cream: #fbf8ee;
+      --paper-line: #e6e0cc;
+      --zine-yellow: #f4dc58;
+      --zine-orange: #e86825;
+      --zine-blue: #7ec4cf;
+      --zine-red: #d94e34;
+      --zine-green-badge: #0f613c;
+      --text-main: #222c26;
+      --text-muted: #536259;
+      --shadow-zine: 0 20px 45px rgba(8, 20, 14, 0.5);
     }
 
     * {
@@ -39,7 +39,7 @@
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: var(--text-main);
-      background-color: var(--bg-brown);
+      background-color: var(--bg-cutting-green);
       overflow-x: hidden;
     }
 
@@ -47,52 +47,63 @@
     button { font: inherit; cursor: pointer; }
     img { max-width: 100%; display: block; }
 
-    /* HEADER FLOATING */
+    /* ==========================================================
+       NAVBAR / HEADER DENGAN EFEK SAAT DI-SCROLL
+       ========================================================== */
     header {
       position: fixed;
       top: 15px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 1000;
-      width: min(720px, 92%);
-      background: rgba(249, 244, 238, 0.95);
-      border: 1px solid #dcd0be;
-      border-radius: 30px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      width: min(760px, 92%);
+      background: rgba(11, 38, 29, 0.85);
+      border: 2px solid rgba(244, 220, 88, 0.5);
+      border-radius: 40px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    /* Efek Saat Halaman Di-scroll */
+    header.scrolled {
+      background: rgba(11, 38, 29, 0.98);
+      border-color: var(--zine-yellow);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transform: translateX(-50%) translateY(2px);
     }
 
     nav {
-      height: 52px;
-      padding: 0 20px;
+      height: 54px;
+      padding: 0 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .logo {
-      font-family: 'Caveat', cursive;
-      font-size: 1.4rem;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.25rem;
       font-weight: 700;
-      color: var(--accent-brown);
+      color: var(--zine-yellow);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       transition: transform 0.2s ease;
     }
     .logo:hover { transform: scale(1.03); }
 
     .logo-badge {
-      width: 24px;
-      height: 24px;
-      background: var(--accent-soft);
-      border: 1px solid var(--accent-brown);
+      width: 30px;
+      height: 30px;
+      background: var(--zine-yellow);
+      border: 2px solid #ffffff;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--accent-brown);
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--bg-zine-dark);
     }
 
     .nav-links {
@@ -103,66 +114,65 @@
     }
 
     .nav-links a {
-      font-size: 0.76rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      transition: color 0.2s ease, transform 0.2s ease;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #ffffff;
+      padding: 5px 10px;
+      border-radius: 20px;
+      transition: background 0.2s ease;
     }
 
     .nav-links a:hover {
-      color: var(--accent-brown);
-      transform: translateY(-1px);
+      background: rgba(244, 220, 88, 0.25);
+      color: var(--zine-yellow);
     }
 
-    /* GAYA TOMBOL TOGGLE SWITCH (ON/OFF STYLE) UNTUK ID / EN */
+    /* TOMBOL TOGGLE SWITCH ID / EN */
     .lang-switch {
       display: inline-flex;
       align-items: center;
-      background: #e6dfd3;
-      border: 1px solid #c7b9a5;
-      padding: 3px;
+      background: var(--bg-zine-dark);
+      border: 2px solid var(--zine-yellow);
+      padding: 2px;
       border-radius: 20px;
       cursor: pointer;
       position: relative;
       width: 72px;
-      height: 28px;
-      transition: background 0.3s ease;
+      height: 30px;
     }
 
     .lang-switch .switch-handle {
       position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 33px;
-      height: 20px;
-      background: var(--accent-brown);
+      top: 2px;
+      left: 2px;
+      width: 32px;
+      height: 22px;
+      background: var(--zine-yellow);
       border-radius: 14px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .lang-switch.en .switch-handle {
-      transform: translateX(33px);
-      background: #b5651d;
+      transform: translateX(32px);
+      background: #ffffff;
     }
 
     .lang-labels {
       display: flex;
       justify-content: space-between;
       width: 100%;
-      padding: 0 7px;
+      padding: 0 8px;
       font-size: 0.65rem;
-      font-weight: 700;
+      font-weight: 800;
       z-index: 2;
-      color: #6e5c4f;
+      color: #ffffff;
       user-select: none;
     }
 
     .lang-labels span.active {
-      color: white;
+      color: var(--bg-zine-dark);
     }
 
-    /* KELOMPOK AKSI KANAN (MOBILE) */
     .nav-actions {
       display: flex;
       align-items: center;
@@ -171,246 +181,726 @@
 
     .menu-btn {
       display: none;
-      background: none;
+      background: var(--zine-yellow);
       border: none;
-      font-size: 1.3rem;
-      cursor: pointer;
-      color: var(--accent-brown);
-      transition: transform 0.2s;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--bg-zine-dark);
     }
-    .menu-btn:active { transform: rotate(90deg); }
 
     /* ==========================================================
-       STIKER DARK ACADEMIA & VINTAGE BROWN
+       LATAR HALAMAN (HOME = CUTTING MAT HIJAU DENGAN ELEMEN MEJA)
        ========================================================== */
-    .sticker {
-      position: absolute;
-      z-index: 20;
-      pointer-events: none;
-      filter: drop-shadow(0 6px 10px rgba(36, 22, 12, 0.28));
-      transition: transform 0.3s ease;
-    }
-    .journal-book:hover .sticker {
-      transform: scale(1.05) rotate(0deg);
-    }
-
-    .sticker-label-pill {
-      top: -16px; left: 55px; background: #6e472b; color: #f7efe5;
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
-      padding: 6px 18px; border-radius: 20px; border: 2px solid #f7efe5; transform: rotate(-2deg);
-    }
-    .sticker-ribbon { top: -22px; right: -18px; width: 68px; height: 68px; transform: rotate(12deg); }
-    .sticker-leaf { bottom: -24px; left: -20px; width: 65px; height: 65px; transform: rotate(-18deg); }
-    .sticker-wax { top: -20px; right: 30px; width: 64px; height: 64px; transform: rotate(8deg); }
-    .sticker-spell {
-      bottom: -18px; right: 35px; background: #4e3322; color: #f3e8d8;
-      font-family: 'Playfair Display', serif; font-size: 0.75rem; font-weight: 700;
-      padding: 6px 14px; border-radius: 8px; border: 1.5px dashed #d4bfa4; transform: rotate(-4deg);
-    }
-    .sticker-camera { top: -26px; right: 28px; width: 78px; height: 64px; transform: rotate(10deg); }
-    .sticker-coffee { bottom: -25px; left: 35px; width: 64px; height: 64px; transform: rotate(-10deg); }
-    .sticker-books { top: -32px; right: 20px; width: 82px; height: 75px; transform: rotate(4deg); }
-    .sticker-bear { bottom: -22px; right: 25px; width: 82px; height: 88px; transform: rotate(-6deg); }
-    .sticker-butterfly { top: -26px; left: 25px; width: 72px; height: 62px; transform: rotate(-14deg); }
-
-    /* SECTION FULL SCREEN LAYOUT */
-    .journal-section {
-      min-height: 100vh; width: 100%;
-      display: flex; align-items: center; justify-content: center;
-      padding: 90px 20px 40px; position: relative;
-    }
-
-    .bg-brown-grid {
-      background-color: var(--bg-brown);
-      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 35px 35px;
-    }
-
-    .bg-cream-grid {
-      background-color: var(--bg-cream);
-      background-image: linear-gradient(rgba(62,45,32,0.04) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(62,45,32,0.04) 1px, transparent 1px);
-      background-size: 35px 35px;
-      color: #362a22;
-    }
-
-    .journal-book {
-      background-color: var(--book-page);
-      background-image: repeating-linear-gradient(transparent, transparent 31px, var(--page-line) 31px, var(--page-line) 32px);
-      background-size: 100% 32px;
-      border: 1px solid #d9ccb9;
-      border-radius: 6px 14px 14px 6px;
-      box-shadow: var(--shadow-book);
-      width: min(850px, 95%);
-      padding: 50px 60px;
+    .zine-section {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 95px 20px 55px;
       position: relative;
-      opacity: 0; transform: translateY(30px);
+      overflow: hidden;
+    }
+
+    /* Latar Khusus Home: Cutting Mat Hijau + Elemen Foto Referensi (Laptop, Kamera, Klip, Penggaris, dll)[cite: 10] */
+    .bg-theme-craft-home {
+      background-color: #11382b;
+      background-image: 
+        /* Elemen Foto Referensi diletakkan di sudut-sudut latar hijau Home[cite: 10] */
+        url('poster.jpg'), 
+        linear-gradient(rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px);
+      background-position: top right, 0 0, 0 0;
+      background-size: 550px auto, 40px 40px, 40px 40px;
+      background-repeat: no-repeat, repeat, repeat;
+    }
+
+    /* Latar Bagian Lainnya (Cutting Mat Hijau / Grid Krim) */
+    .bg-theme-craft {
+      background-color: #11382b;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px);
+      background-size: 40px 40px;
+    }
+
+    .bg-theme-grid {
+      background-color: #e8e2d5;
+      background-image: 
+        linear-gradient(rgba(200, 190, 172, 0.5) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, rgba(200, 190, 172, 0.5) 1.5px, transparent 1.5px);
+      background-size: 35px 35px;
+    }
+
+    .zine-sheet {
+      background-color: var(--paper-cream);
+      background-image: repeating-linear-gradient(transparent, transparent 31px, var(--paper-line) 31px, var(--paper-line) 32px);
+      background-size: 100% 32px;
+      border: 2px solid #ded6be;
+      border-radius: 8px;
+      box-shadow: var(--shadow-zine);
+      width: min(860px, 95%);
+      padding: 52px 54px 44px;
+      position: relative;
+      z-index: 5;
+      opacity: 0;
+      transform: translateY(30px);
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .journal-book.appear { opacity: 1; transform: translateY(0); }
-
-    .journal-book::before {
-      content: ''; position: absolute; left: 18px; top: 30px; bottom: 30px; width: 12px;
-      background: repeating-linear-gradient(to bottom, #555, #555 6px, #bbb 6px, #bbb 12px, #222 12px, #222 14px);
-      border-radius: 4px;
+    .zine-sheet.appear {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .section-header { margin-bottom: 24px; }
-    .section-num { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
-    .section-title { font-family: 'Caveat', cursive; font-size: 2.5rem; color: var(--accent-brown); line-height: 1.1; }
-
-    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; align-items: center; }
-
-    h1 { font-family: 'Caveat', cursive; font-size: clamp(2.8rem, 4.5vw, 3.8rem); font-weight: 700; line-height: 1.1; margin-bottom: 12px; }
-    h1 .name { color: var(--accent-brown); border-bottom: 2px dashed var(--accent-brown); }
-    .hero-copy { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px; }
-    .hero-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
-    .tag-chip {
-      font-size: 0.76rem; font-weight: 600; background: white; border: 1px solid #dcd0be;
-      padding: 4px 10px; border-radius: 6px; transition: transform 0.2s, background 0.2s;
+    .binder-clip {
+      position: absolute;
+      top: -34px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 130px;
+      height: 62px;
+      z-index: 25;
+      filter: drop-shadow(0 5px 8px rgba(0,0,0,0.25));
+      pointer-events: none;
     }
-    .tag-chip:hover { transform: translateY(-2px); background: var(--accent-soft); }
 
+    .zine-pill-badge {
+      display: inline-block;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 18px;
+      border-radius: 50px;
+      border: 2.5px solid var(--bg-zine-dark);
+      box-shadow: 0 3px 0 var(--bg-zine-dark);
+      margin-bottom: 10px;
+    }
+    .badge-yellow { background: var(--zine-yellow); color: var(--bg-zine-dark); }
+    .badge-orange { background: var(--zine-orange); color: #ffffff; }
+    .badge-blue { background: var(--zine-blue); color: var(--bg-zine-dark); }
+
+    .qr-sticker-card {
+      position: absolute;
+      top: -28px;
+      right: 26px;
+      background: #ffffff;
+      padding: 8px 8px 6px 8px;
+      border-radius: 6px;
+      border: 1.5px solid #d5d0c0;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+      transform: rotate(6deg);
+      z-index: 25;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .qr-sticker-card:hover { transform: rotate(0deg) scale(1.06); }
+    .qr-sticker-card span {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: var(--bg-zine-dark);
+      margin-top: 4px;
+    }
+
+    .red-pushpin {
+      position: absolute;
+      top: -14px;
+      left: 16px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ff6b6b, #c92a2a);
+      box-shadow: 2px 5px 8px rgba(0,0,0,0.35);
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .ripped-tag {
+      display: inline-block;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+      clip-path: polygon(2% 0%, 98% 2%, 100% 96%, 96% 100%, 3% 98%, 0% 4%);
+      transition: transform 0.2s ease;
+    }
+    .ripped-tag:hover { transform: translateY(-2px) rotate(-1deg); }
+    .rip-blue { background: var(--zine-blue); color: #163338; transform: rotate(-1.5deg); }
+    .rip-yellow { background: var(--zine-yellow); color: #3d330a; transform: rotate(1.5deg); }
+    .rip-red { background: var(--zine-red); color: #ffffff; transform: rotate(1deg); }
+
+    .section-header { margin-bottom: 22px; }
+    .section-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 2.15rem;
+      color: var(--bg-cutting-green);
+      line-height: 1.15;
+    }
+
+    /* ==========================================================
+       SECTION 1: BERANDA
+       ========================================================== */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .hi-line {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.65rem;
+      color: #2c4a9e;
+      margin-bottom: 2px;
+    }
+
+    h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(2.3rem, 4.2vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 14px;
+      color: var(--bg-cutting-green);
+      letter-spacing: -0.01em;
+    }
+    h1 .sub-role {
+      display: block;
+      font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+      color: var(--zine-orange);
+      margin-top: 6px;
+    }
+
+    .hero-copy {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-      padding: 10px 18px; border-radius: 8px; font-size: 0.84rem; font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 11px 22px;
+      border-radius: 30px;
+      font-size: 0.84rem;
+      font-weight: 700;
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .btn-primary { background: var(--accent-brown); color: white; border: 1px solid var(--accent-brown); }
-    .btn-primary:hover { opacity: 0.95; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(107, 76, 53, 0.3); }
-    .btn-secondary { background: white; color: var(--text-main); border: 1px solid #dcd0be; }
-    .btn-secondary:hover { transform: translateY(-3px); background: #faf4eb; }
+    .btn-primary {
+      background: var(--zine-yellow);
+      color: var(--bg-zine-dark);
+      border: 2px solid var(--bg-zine-dark);
+      box-shadow: 0 4px 0 var(--bg-zine-dark);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #fae46e;
+    }
+    .btn-secondary {
+      background: var(--zine-orange);
+      color: #ffffff;
+      border: 2px solid var(--bg-zine-dark);
+      box-shadow: 0 4px 0 var(--bg-zine-dark);
+    }
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: #f07635;
+    }
 
     .polaroid-frame {
-      background: white; padding: 12px 12px 18px 12px; border: 1px solid #dcd0be;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08); transform: rotate(2deg); max-width: 250px; margin: 0 auto; position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #ffffff;
+      padding: 14px 14px 20px 14px;
+      border: 1.5px solid #d5d0c0;
+      box-shadow: 0 12px 26px rgba(10, 25, 18, 0.22);
+      transform: rotate(-2.5deg);
+      max-width: 255px;
+      margin: 0 auto;
+      position: relative;
+      transition: transform 0.3s ease;
     }
-    .polaroid-frame:hover { transform: rotate(0deg) scale(1.03); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-    .washi-tape { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); width: 70px; height: 20px; background-color: var(--tape-yellow); z-index: 10; }
-    .polaroid-img { width: 100%; aspect-ratio: 4 / 4.2; background: #f4ecdf; overflow: hidden; margin-bottom: 10px; }
-    .polaroid-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-    .polaroid-frame:hover .polaroid-img img { transform: scale(1.08); }
-    .polaroid-caption { font-family: 'Caveat', cursive; font-size: 1.35rem; text-align: center; color: var(--accent-brown); }
+    .polaroid-frame:hover { transform: rotate(0deg) scale(1.03); }
+    .polaroid-img {
+      width: 100%;
+      aspect-ratio: 4 / 4.3;
+      background: #e7efe4;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .polaroid-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .polaroid-frame:hover .polaroid-img img { transform: scale(1.06); }
+    .polaroid-caption {
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      color: var(--bg-cutting-green);
+    }
 
-    .about-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; align-items: start; }
+    /* ==========================================================
+       SECTION 2: TENTANG SAYA
+       ========================================================== */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: start;
+    }
     .quote-box {
-      background: white; border: 1px solid #dcd0be; padding: 24px; border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03); position: relative; transition: transform 0.2s ease;
+      background: #ffffff;
+      border: 2px solid #ded8c4;
+      padding: 22px;
+      border-radius: 10px;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.04);
     }
-    .quote-box:hover { transform: translateY(-2px); }
-    .quote-box p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.7; }
-    
-    .sticky-notes-stack { display: flex; flex-direction: column; gap: 10px; }
+    .quote-box p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+
+    .sticky-notes-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
     .sticky-note {
-      padding: 14px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.08); position: relative; transition: transform 0.2s ease;
+      padding: 16px;
+      font-size: 0.83rem;
+      font-weight: 700;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
+      clip-path: polygon(0% 0%, 100% 1%, 99% 98%, 1% 100%);
     }
-    .sticky-note:hover { transform: translateX(4px) scale(1.02); }
-    .note-brown { background: #f0e4d7; color: #422d1d; border-left: 4px solid #704c32; }
-    .note-cream { background: #faf4eb; color: #4a3c31; border-left: 4px solid #9c8065; }
-    .note-yellow { background: #fbf3d5; color: #4a401e; border-left: 4px solid #b3922d; }
+    .sticky-note:hover { transform: translateX(4px); }
+    .note-yellow { background: var(--zine-yellow); color: #362e08; border-left: 5px solid #c9a816; }
+    .note-blue { background: #d0f0f5; color: #153b42; border-left: 5px solid var(--zine-blue); }
+    .note-orange { background: #fce8df; color: #7a2b16; border-left: 5px solid var(--zine-orange); }
 
-    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    /* ==========================================================
+       SECTION 3: KEAHLIAN
+       ========================================================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
     .skill-card {
-      background: white; border: 1px solid #dcd0be; padding: 16px; border-radius: 8px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.03); transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background: #ffffff;
+      border: 2px solid #ded8c4;
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
-    .skill-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(107, 76, 53, 0.12); border-color: var(--accent-brown); }
-    .skill-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--accent-brown); margin-bottom: 4px; }
-    .skill-card p { font-size: 0.8rem; color: var(--text-muted); }
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--zine-green-badge);
+    }
+    .sw-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--zine-green-badge);
+      color: var(--zine-yellow);
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      box-shadow: 0 3px 0 var(--bg-zine-dark);
+    }
+    .skill-card h3 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.98rem;
+      color: var(--bg-zine-dark);
+      margin-bottom: 4px;
+    }
+    .skill-card p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
 
-    .corkboard {
-      background-color: var(--cork-bg);
-      background-image: radial-gradient(#522f18 1px, transparent 1px);
-      background-size: 16px 16px;
-      border: 6px solid #3d2312; border-radius: 12px; padding: 24px;
-      box-shadow: inset 0 5px 15px rgba(0,0,0,0.45); position: relative;
+    /* ==========================================================
+       SECTION 4: PROYEK PILIHAN & MODAL DETAIL
+       ========================================================== */
+    .projects-board {
+      background: var(--bg-zine-dark);
+      border: 3px solid #ffffff;
+      border-radius: 14px;
+      padding: 28px 24px;
+      box-shadow: 0 18px 40px rgba(8, 20, 14, 0.45);
+      position: relative;
+      z-index: 5;
     }
-    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
     .project-card {
-      background: white; border-radius: 6px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-      position: relative; padding: 10px 10px 16px 10px; transform: rotate(-1deg);
-      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 12px 12px 16px 12px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.28);
+      position: relative;
+      transform: rotate(-1deg);
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
     }
     .project-card:nth-child(even) { transform: rotate(1deg); }
-    .project-card:hover { transform: translateY(-6px) rotate(0deg) scale(1.02); box-shadow: 0 12px 25px rgba(0,0,0,0.25); z-index: 5; }
-    
-    .pin {
-      position: absolute; top: 4px; left: 50%; transform: translateX(-50%);
-      width: 12px; height: 12px; background: #8c3232; border-radius: 50%;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3); z-index: 10;
+    .project-card:hover {
+      transform: translateY(-8px) rotate(0deg) scale(1.03);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.38);
+      z-index: 10;
     }
 
-    .project-visual { height: 110px; background: #eee; border-radius: 4px; overflow: hidden; margin-bottom: 10px; }
-    .project-visual img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-    .project-card:hover .project-visual img { transform: scale(1.1); }
-    .project-tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--accent-brown); margin-bottom: 2px; }
-    .project-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
-    .project-card p { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; }
-    .project-link { font-size: 0.78rem; font-weight: 600; color: var(--accent-brown); transition: opacity 0.2s; }
-    .project-link:hover { opacity: 0.7; text-decoration: underline; }
-
-    .timeline { padding-left: 18px; border-left: 2px dashed var(--accent-brown); }
-    .timeline-item { position: relative; margin-bottom: 18px; }
-    .timeline-dot { position: absolute; left: -25px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-brown); border: 2px solid white; transition: transform 0.2s; }
-    .timeline-item:hover .timeline-dot { transform: scale(1.4); background: #b5651d; }
-    .timeline-card { background: white; border: 1px solid #dcd0be; border-radius: 8px; padding: 16px; box-shadow: 0 3px 8px rgba(0,0,0,0.03); transition: transform 0.2s ease; }
-    .timeline-card:hover { transform: translateX(4px); }
-    .timeline-card small { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; color: var(--accent-brown); display: block; margin-bottom: 4px; }
-    .timeline-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
-    .timeline-card p { font-size: 0.82rem; color: var(--text-muted); }
-
-    .contact-box {
-      background: var(--accent-soft); border: 1px dashed var(--accent-brown); border-radius: 8px;
-      padding: 35px; text-align: center; transition: transform 0.3s ease;
+    .pin-red-mini {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ff6b6b, #c92a2a);
+      box-shadow: 0 3px 5px rgba(0,0,0,0.35);
+      z-index: 10;
     }
-    .contact-box:hover { transform: scale(1.01); }
-    .contact-box h2 { font-family: 'Caveat', cursive; font-size: 2rem; color: var(--accent-brown); margin-bottom: 6px; }
-    .contact-box p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px; }
 
+    .project-visual {
+      height: 115px;
+      background: #eef4f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .project-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .project-card:hover .project-visual img { transform: scale(1.08); }
+    .project-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--bg-zine-dark);
+      background: var(--zine-yellow);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 5px;
+    }
+    .project-card h3 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.95rem;
+      color: var(--bg-zine-dark);
+      margin-bottom: 4px;
+    }
+    .project-card p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+    .project-link {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--zine-orange);
+    }
+
+    .project-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 56, 43, 0.85);
+      backdrop-filter: blur(6px);
+      display: grid;
+      place-items: center;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 20px;
+    }
+    .project-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-content {
+      background: var(--paper-cream);
+      border: 3px solid var(--zine-yellow);
+      border-radius: 14px;
+      width: min(600px, 95%);
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 30px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .project-modal.active .modal-content {
+      transform: scale(1) translateY(0);
+    }
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 18px;
+      background: var(--zine-red);
+      color: #ffffff;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 1rem;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+    .modal-img {
+      width: 100%;
+      height: 220px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      border: 2px solid #ddd;
+    }
+    .modal-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .modal-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.4rem;
+      color: var(--bg-zine-dark);
+      margin-bottom: 8px;
+    }
+    .modal-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .modal-story-box {
+      background: #ffffff;
+      border-left: 4px solid var(--zine-orange);
+      padding: 14px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 0.84rem;
+      color: #33423a;
+      line-height: 1.6;
+    }
+    .modal-story-box h4 {
+      font-family: 'Fredoka', sans-serif;
+      color: var(--zine-orange);
+      margin-bottom: 6px;
+      font-size: 0.92rem;
+    }
+
+    /* ==========================================================
+       SECTION 5: PENDIDIKAN & PKL (NOTEBOOK SCRAPBOOK BUKA-TUTUP)
+       ========================================================== */
+    .notebook-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .notebook-card {
+      background: #ffffff;
+      border: 2px solid #ded8c4;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .notebook-header {
+      padding: 16px 20px;
+      background: #fbf9f4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+      border-bottom: 1px dashed #e6e0cc;
+      transition: background 0.2s ease;
+    }
+    .notebook-header:hover { background: #f4efd8; }
+    .notebook-title-area small {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--zine-orange);
+      display: block;
+      margin-bottom: 3px;
+      letter-spacing: 0.05em;
+    }
+    .notebook-title-area h3 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.05rem;
+      color: var(--bg-zine-dark);
+    }
+    .notebook-toggle-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--zine-yellow);
+      color: var(--bg-zine-dark);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .notebook-card.open .notebook-toggle-icon {
+      transform: rotate(45deg);
+      background: var(--zine-orange);
+      color: #ffffff;
+    }
+    .notebook-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+      padding: 0 20px;
+      background: #ffffff;
+    }
+    .notebook-card.open .notebook-body {
+      max-height: 400px;
+      padding: 18px 20px 22px;
+    }
+    .notebook-story {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .notebook-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .highlight-chip {
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: #f0f7f4;
+      color: var(--bg-cutting-green);
+      border: 1px solid #c2dcd0;
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
+    /* ==========================================================
+       SECTION 6: KONTAK
+       ========================================================== */
+    .envelope-wrapper {
+      position: relative;
+      background: #b88b58;
+      border-radius: 14px;
+      padding: 24px 20px 20px;
+      box-shadow: 0 12px 28px rgba(10, 25, 18, 0.25);
+      border: 2px solid #8f683c;
+    }
+    .letter-sheet {
+      background: var(--zine-yellow);
+      border: 1.5px dashed #b59a1d;
+      border-radius: 10px;
+      padding: 30px 24px;
+      text-align: center;
+      transform: rotate(-1deg);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .letter-sheet h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: #a63421;
+      margin-bottom: 6px;
+    }
+    .letter-sheet p {
+      font-size: 0.9rem;
+      color: #42370a;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    /* ==========================================================
+       RESPONSIVE MOBILE
+       ========================================================== */
     @media (max-width: 900px) {
-      .journal-book { padding: 30px 20px 30px 35px; width: 95%; }
-      .journal-book::before { left: 12px; width: 10px; }
+      .zine-sheet { padding: 48px 22px 32px; width: 95%; }
       .hero-grid, .about-layout, .skills-grid, .projects-grid { grid-template-columns: 1fr; }
-      
-      .sticker-ribbon { width: 52px; height: 52px; right: -8px; top: -15px; }
-      .sticker-leaf { width: 48px; height: 48px; left: -10px; bottom: -15px; }
-      .sticker-camera, .sticker-bear, .sticker-books { transform: scale(0.8); }
+      .binder-clip { width: 105px; top: -28px; }
+      .qr-sticker-card { top: -22px; right: 12px; transform: scale(0.85) rotate(5deg); }
 
-      .menu-btn { display: block; }
+      .menu-btn { display: grid; place-items: center; }
       .nav-links {
         display: none;
         position: absolute;
-        top: 55px; left: 0; right: 0;
-        background: #fdfbf7; border: 1px solid #dcd0be; border-radius: 12px;
-        padding: 16px; flex-direction: column; align-items: center; gap: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        animation: fadeInDown 0.3s ease forwards;
+        top: 62px;
+        left: 0;
+        right: 0;
+        background: var(--bg-zine-dark);
+        border: 2px solid var(--zine-yellow);
+        border-radius: 18px;
+        padding: 16px;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
       }
       .nav-links.open { display: flex; }
       header { width: 92%; }
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
+  <header id="mainHeader">
     <nav>
       <!-- LOGO -->
       <a class="logo" href="#home">
         <div class="logo-badge">W</div> Wulan
       </a>
       
-      <!-- MENU NAVIGASI UTAMA -->
+      <!-- MENU NAVIGASI -->
       <ul class="nav-links" id="navLinks">
         <li><a href="#home" class="t-home">Beranda</a></li>
         <li><a href="#about" class="t-about">Tentang</a></li>
@@ -420,9 +910,8 @@
         <li><a href="#contact" class="t-contact">Kontak</a></li>
       </ul>
 
-      <!-- TOMBOL AKSI DI LUAR HAMBURGER (SELALU MUNCUL DI DESKTOP & MOBILE) -->
+      <!-- TOMBOL TOGGLE BAHASA & MOBILE MENU -->
       <div class="nav-actions">
-        <!-- TOMBOL SWITCH TOGGLE ID / EN -->
         <div class="lang-switch" id="langToggle" aria-label="Ganti Bahasa">
           <div class="switch-handle"></div>
           <div class="lang-labels">
@@ -430,200 +919,203 @@
             <span class="l-en">EN</span>
           </div>
         </div>
-
         <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
       </div>
     </nav>
   </header>
 
-  <!-- SECTION 1: BERANDA -->
-  <section class="journal-section bg-brown-grid" id="home">
-    <div class="journal-book">
-      <div class="sticker sticker-label-pill">ENJOY THE LITTLE THINGS</div>
-      <svg class="sticker sticker-leaf" viewBox="0 0 100 100">
-        <path d="M50 5 C35 25, 10 30, 15 55 C20 75, 42 75, 48 80 L48 96 L52 96 L52 80 C58 75, 80 75, 85 55 C90 30, 65 25, 50 5 Z" fill="#9c5a2b" stroke="#f7efe5" stroke-width="3"/>
-        <path d="M50 15 L50 80 M50 38 L30 28 M50 52 L25 46 M50 38 L70 28 M50 52 L75 46" stroke="#5c3214" stroke-width="2" fill="none"/>
+  <!-- SECTION 1: BERANDA (Latar Hijau Cutting Mat Lengkap dengan Elemen Foto Referensi) -->
+  <section class="zine-section bg-theme-craft-home" id="home">
+    <div class="zine-sheet">
+      <svg class="binder-clip" viewBox="0 0 160 80">
+        <circle cx="80" cy="22" r="18" fill="none" stroke="#f4dc58" stroke-width="8"/>
+        <circle cx="80" cy="22" r="8" fill="#11382b"/>
+        <path d="M35 34 L125 34 L138 68 L22 68 Z" fill="#f4dc58" stroke="#ffffff" stroke-width="2.5"/>
+        <text x="80" y="56" text-anchor="middle" fill="#5c4c0a" font-family="Caveat, cursive" font-size="18" font-weight="bold">Portofolio</text>
       </svg>
+
+      <a href="https://www.instagram.com/wwln_16?rpxt=MTRiMHNtcWpjczBo" target="_blank" rel="noopener noreferrer" class="qr-sticker-card" title="Kunjungi Instagram">
+        <svg width="54" height="54" viewBox="0 0 60 60" fill="none">
+          <rect x="4" y="4" width="16" height="16" stroke="#12281d" stroke-width="4"/>
+          <rect x="9" y="9" width="6" height="6" fill="#12281d"/>
+          <rect x="40" y="4" width="16" height="16" stroke="#12281d" stroke-width="4"/>
+          <rect x="45" y="9" width="6" height="6" fill="#12281d"/>
+          <rect x="4" y="40" width="16" height="16" stroke="#12281d" stroke-width="4"/>
+          <rect x="9" y="45" width="6" height="6" fill="#12281d"/>
+          <rect x="25" y="6" width="5" height="10" fill="#12281d"/>
+          <rect x="25" y="25" width="10" height="10" rx="2" stroke="#e86825" stroke-width="3"/>
+          <rect x="40" y="26" width="14" height="5" fill="#12281d"/>
+          <rect x="26" y="42" width="12" height="5" fill="#12281d"/>
+          <rect x="44" y="40" width="10" height="14" fill="#12281d"/>
+        </svg>
+        <span>@wwln_16</span>
+      </a>
 
       <div class="hero-grid">
         <div class="hero-text">
-          <div class="section-header">
-            <span class="section-num t-num1">01 — Beranda</span>
+          <div class="section-header" style="margin-bottom: 10px;">
+            <span class="zine-pill-badge badge-yellow t-num1">01 — BERANDA</span>
           </div>
-          <h1><span class="t-h1">Halo, Saya</span> <span class="name">Wulan Maharani</span><br><span class="t-role">Kreator Digital.</span></h1>
+          <div class="hi-line t-h1">Halo, Saya</div>
+          <h1>WULAN MAHARANI <span class="sub-role t-role">Kreator Digital & Web Dev.</span></h1>
           <p class="hero-copy t-herocopy">
             Saya pelajar Rekayasa Perangkat Lunak yang suka belajar membuat website,
             mencoba hal baru, dan mengubah ide sederhana menjadi karya digital yang menarik.
           </p>
           <div class="hero-tags">
-            <span class="tag-chip">💻 Web Dev</span>
-            <span class="tag-chip">🎨 Design</span>
-            <span class="tag-chip">✨ RPL Student</span>
+            <span class="ripped-tag rip-blue">WEB DEVELOPMENT</span>
+            <span class="ripped-tag rip-yellow">DESIGN</span>
+            <span class="ripped-tag rip-red">RPL STUDENT</span>
           </div>
           <div class="hero-buttons">
             <a class="btn btn-primary t-btnproj" href="#projects">Lihat Proyekku ↗</a>
-            <a class="btn btn-secondary t-btnabout" href="#about">Kenalan Yuk </a>
+            <a class="btn btn-secondary t-btnabout" href="#about">Kenalan Yuk</a>
           </div>
         </div>
 
         <div class="polaroid-frame">
-          <div class="washi-tape"></div>
-          <svg class="sticker sticker-ribbon" viewBox="0 0 100 100">
-            <path d="M50 45 C25 15, 5 30, 20 50 C30 60, 45 50, 50 45 Z" fill="#4a2e1b" stroke="#f7efe5" stroke-width="3"/>
-            <path d="M50 45 C75 15, 95 30, 80 50 C70 60, 55 50, 50 45 Z" fill="#4a2e1b" stroke="#f7efe5" stroke-width="3"/>
-            <path d="M46 48 L22 92 L36 86 L48 54 Z" fill="#3a2314" stroke="#f7efe5" stroke-width="2.5"/>
-            <path d="M54 48 L78 92 L64 86 L52 54 Z" fill="#3a2314" stroke="#f7efe5" stroke-width="2.5"/>
-            <circle cx="50" cy="46" r="8" fill="#5e3b24" stroke="#f7efe5" stroke-width="2.5"/>
-          </svg>
+          <div class="red-pushpin"></div>
           <div class="polaroid-img">
             <img src="wulan.jpeg" alt="Foto Wulan Maharani" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="polaroid-fallback" style="display:none; height:100%; align-items:center; justify-content:center; color:#6e5c4f;">Foto Wulan</div>
+            <div class="polaroid-fallback" style="display:none; height:100%; align-items:center; justify-content:center; color:#536259; font-weight:700;">Foto Wulan</div>
           </div>
-          <div class="polaroid-caption">Wulan Maharani</div>
+          <div class="polaroid-caption">Wulan Maharani ✦</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 2: TENTANG SAYA -->
-  <section class="journal-section bg-cream-grid" id="about">
-    <div class="journal-book">
-      <svg class="sticker sticker-wax" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="42" fill="#5c3c28" stroke="#f7efe5" stroke-width="4"/>
-        <circle cx="50" cy="50" r="30" fill="none" stroke="#855a3e" stroke-width="3"/>
-        <text x="50" y="61" text-anchor="middle" fill="#d9c3a9" font-family="Georgia, serif" font-size="32" font-weight="bold">W</text>
-      </svg>
-      <div class="sticker sticker-spell">I PUT A SPELL ON YOU ✨</div>
-
+  <!-- SECTION 2: TENTANG SAYA (Latar Grid Krim) -->
+  <section class="zine-section bg-theme-grid" id="about">
+    <div class="zine-sheet">
       <div class="section-header">
-        <span class="section-num t-num2">02 — Profil</span>
+        <span class="zine-pill-badge badge-orange t-num2">02 — PROFIL</span>
         <h2 class="section-title t-abouttitle">Tentang Saya</h2>
       </div>
       <div class="about-layout">
-        <div class="quote-box">
-          <p class="t-aboutdesc1">
-            "Saya adalah pelajar jurusan Rekayasa Perangkat Lunak (RPL) di SMK Negeri Manonjaya. Saya tertarik pada dunia teknologi, pengembangan website, dan desain digital."
-          </p>
-          <p class="t-aboutdesc2">
-            Saya senang mengeksplorasi ide, belajar dari proses, dan mengembangkan kemampuan melalui tugas sekolah maupun proyek pribadi dengan penuh tanggung jawab.
-          </p>
-          <div style="font-family: 'Caveat', cursive; font-size: 1.3rem; color: var(--accent-brown); margin-top: 10px;">— Wulan Maharani</div>
+        <div>
+          <div class="quote-box">
+            <p class="t-aboutdesc1">
+              "Saya adalah pelajar jurusan Rekayasa Perangkat Lunak (RPL) di SMK Negeri Manonjaya. Saya tertarik pada dunia teknologi, pengembangan website, dan desain digital."
+            </p>
+            <p class="t-aboutdesc2">
+              Saya senang mengeksplorasi ide, belajar dari proses, dan mengembangkan kemampuan melalui tugas sekolah maupun proyek pribadi dengan penuh tanggung jawab.
+            </p>
+            <div style="font-family: 'Caveat', cursive; font-size: 1.45rem; font-weight: 700; color: var(--zine-orange); margin-top: 6px;">— Wulan Maharani</div>
+          </div>
         </div>
+
         <div class="sticky-notes-stack">
-          <div class="sticky-note note-brown t-note1">📌 Status: Pelajar SMK RPL</div>
-          <div class="sticky-note note-cream t-note2">💡 Fokus: Web Development & Desain</div>
-          <div class="sticky-note note-yellow t-note3">📍 Berdomisili di: Manonjaya, Tasikmalaya</div>
+          <div class="sticky-note note-yellow t-note1">📌 Status: Pelajar SMK RPL</div>
+          <div class="sticky-note note-blue t-note2">💡 Fokus: Web Development & Desain</div>
+          <div class="sticky-note note-orange t-note3">📍 Berdomisili di: Manonjaya, Tasikmalaya</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 3: KEAHLIAN & TOOLBOX -->
-  <section class="journal-section bg-brown-grid" id="skills">
-    <div class="journal-book">
-      <svg class="sticker sticker-camera" viewBox="0 0 120 95">
-        <rect x="10" y="22" width="100" height="62" rx="10" fill="#2b2623" stroke="#f7efe5" stroke-width="4"/>
-        <rect x="10" y="22" width="100" height="20" rx="6" fill="#d9d2c7"/>
-        <rect x="35" y="10" width="32" height="14" rx="4" fill="#d9d2c7" stroke="#2b2623" stroke-width="2"/>
-        <circle cx="60" cy="55" r="22" fill="#b8afa4" stroke="#2b2623" stroke-width="3"/>
-        <circle cx="60" cy="55" r="14" fill="#1c1917"/>
-        <circle cx="55" cy="50" r="4" fill="rgba(255,255,255,0.6)"/>
-      </svg>
-      <svg class="sticker sticker-coffee" viewBox="0 0 100 100">
-        <path d="M76 38 C92 38, 92 62, 76 62" fill="none" stroke="#6b5e4c" stroke-width="7" stroke-linecap="round"/>
-        <circle cx="48" cy="50" r="34" fill="#786956" stroke="#f7efe5" stroke-width="4"/>
-        <circle cx="48" cy="50" r="26" fill="#24160d"/>
-        <path d="M32 42 Q45 34 58 43" stroke="#856549" stroke-width="2.5" fill="none"/>
-      </svg>
-
+  <!-- SECTION 3: KEAHLIAN & TOOLBOX (Latar Cutting Mat Hijau Biasa) -->
+  <section class="zine-section bg-theme-craft" id="skills">
+    <div class="zine-sheet">
       <div class="section-header">
-        <span class="section-num t-num3">03 — Keahlian</span>
+        <span class="zine-pill-badge badge-yellow t-num3">03 — SOFTWARES & SKILLS</span>
         <h2 class="section-title t-skillstitle">Perkakas Andalan</h2>
       </div>
       <div class="skills-grid">
         <div class="skill-card">
-          <h3>HTML & CSS</h3>
-          <p class="t-s1">Membuat struktur halaman web & tampilan responsif.</p>
+          <div class="sw-badge">&lt;/&gt;</div>
+          <div>
+            <h3>HTML & CSS</h3>
+            <p class="t-s1">Membuat struktur halaman web & tampilan responsif.</p>
+          </div>
         </div>
         <div class="skill-card">
-          <h3>PHP Native</h3>
-          <p class="t-s2">Logika pemrograman backend dan pemrosesan data.</p>
+          <div class="sw-badge">Php</div>
+          <div>
+            <h3>PHP Native</h3>
+            <p class="t-s2">Logika pemrograman backend dan pemrosesan data.</p>
+          </div>
         </div>
         <div class="skill-card">
-          <h3>MySQL</h3>
-          <p class="t-s3">Penyimpanan dan manajemen database terstruktur.</p>
+          <div class="sw-badge">Sql</div>
+          <div>
+            <h3>MySQL</h3>
+            <p class="t-s3">Penyimpanan dan manajemen database terstruktur.</p>
+          </div>
         </div>
         <div class="skill-card">
-          <h3>Canva & Desain</h3>
-          <p class="t-s4">Penyusunan materi presentasi & profil visual.</p>
+          <div class="sw-badge">Cv</div>
+          <div>
+            <h3>Canva & Desain</h3>
+            <p class="t-s4">Penyusunan materi presentasi & profil visual.</p>
+          </div>
         </div>
         <div class="skill-card">
-          <h3 class="t-s5title">Kerja Tim</h3>
-          <p class="t-s5">Kolaborasi dan komunikasi yang baik dalam proyek.</p>
+          <div class="sw-badge">Tm</div>
+          <div>
+            <h3 class="t-s5title">Kerja Tim</h3>
+            <p class="t-s5">Kolaborasi dan komunikasi yang baik dalam proyek.</p>
+          </div>
         </div>
         <div class="skill-card">
-          <h3 class="t-s6title">Kreativitas</h3>
-          <p class="t-s6">Mencari ide segar dan solusi dalam perancangan.</p>
+          <div class="sw-badge">Id</div>
+          <div>
+            <h3 class="t-s6title">Kreativitas</h3>
+            <p class="t-s6">Mencari ide segar dan solusi dalam perancangan.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 4: PROYEK PILIHAN -->
-  <section class="journal-section bg-cream-grid" id="projects">
-    <div style="width: min(900px, 95%); position: relative;">
-      <div class="section-header" style="text-align: center; margin-bottom: 16px;">
-        <span class="section-num t-num4">04 — Karya Digital</span>
-        <h2 class="section-title t-projtitle">Arsip Proyek Pilihan</h2>
+  <!-- SECTION 4: PROYEK PILIHAN (Latar Grid Krim) -->
+  <section class="zine-section bg-theme-grid" id="projects">
+    <div style="width: min(900px, 95%); position: relative; z-index: 5;">
+      <div class="section-header" style="text-align: center; margin-bottom: 18px;">
+        <span class="zine-pill-badge badge-blue t-num4">04 — KARYA DIGITAL</span>
+        <h2 class="section-title t-projtitle" style="color: #11382b; text-shadow: 0 2px 4px rgba(255,255,255,0.5);">Arsip Proyek Pilihan</h2>
       </div>
-      <div class="corkboard">
-        <svg class="sticker sticker-books" viewBox="0 0 110 100">
-          <rect x="12" y="20" width="18" height="72" rx="2" fill="#4f3727" stroke="#f7efe5" stroke-width="2.5"/>
-          <rect x="31" y="14" width="20" height="78" rx="2" fill="#8c6d46" stroke="#f7efe5" stroke-width="2.5"/>
-          <rect x="52" y="22" width="18" height="70" rx="2" fill="#3a291e" stroke="#f7efe5" stroke-width="2.5"/>
-          <rect x="71" y="18" width="22" height="74" rx="2" fill="#a8875b" stroke="#f7efe5" stroke-width="2.5"/>
-          <line x1="15" y1="32" x2="27" y2="32" stroke="#d9c3a9" stroke-width="2"/>
-          <line x1="35" y1="28" x2="47" y2="28" stroke="#f7efe5" stroke-width="2"/>
-          <line x1="75" y1="30" x2="89" y2="30" stroke="#3a291e" stroke-width="2"/>
-        </svg>
-
+      <div class="projects-board">
         <div class="projects-grid">
-          <article class="project-card">
-            <div class="pin"></div>
+          <!-- Proyek 1 -->
+          <article class="project-card" onclick="openProjectModal('Redesain Website Access Media', 'Website • Redesign', 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80', 'Konsep ulang tampilan website Access Media dengan gaya modern, navigasi yang lebih jelas, serta penerapan palet warna khusus dan tata letak responsif untuk pengalaman pengguna terbaik.', 'Proyek ini dikerjakan sebagai bagian dari inisiatif peningkatan branding perusahaan. Tantangan utamanya adalah menyatukan struktur informasi yang padat ke dalam navigasi tunggal (SPA) yang bersih, interaktif, dan nyaman diakses dari perangkat seluler maupun desktop.')">
+            <div class="pin-red-mini"></div>
             <div class="project-visual">
               <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" alt="Web Redesign">
             </div>
-            <div class="project-body" style="padding: 0;">
+            <div>
               <span class="project-tag">Website • Redesign</span>
               <h3 class="t-p1title">Redesain Website Access Media</h3>
               <p class="t-p1desc">Konsep ulang tampilan website dengan gaya modern dan navigasi jelas.</p>
-              <a class="project-link t-askproj" href="#contact">Tanya proyek ↗</a>
+              <span class="project-link t-askproj">Klik untuk baca cerita ↗</span>
             </div>
           </article>
 
-          <article class="project-card">
-            <div class="pin"></div>
+          <!-- Proyek 2 -->
+          <article class="project-card" onclick="openProjectModal('Aplikasi Manajemen Laundry', 'PHP • MySQL', 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80', 'Sistem Point of Sales (POS) dan manajemen laundry lengkap yang dibangun menggunakan PHP Native dan basis data MySQL. Fitur meliputi pengelolaan data pelanggan, manajemen paket cuci, pencatatan transaksi kasir, hingga rekapitulasi laporan harian.', 'Aplikasi ini dirancang dari nol untuk mengatasi masalah pencatatan manual di usaha laundry lokal. Saya mendesain struktur database relasional dan membedakan hak akses ketat antara Admin dan Kasir guna mengamankan rekapitulasi keuangan harian.')">
+            <div class="pin-red-mini"></div>
             <div class="project-visual">
               <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Database Laundry">
             </div>
-            <div class="project-body" style="padding: 0;">
+            <div>
               <span class="project-tag">PHP • MySQL</span>
               <h3 class="t-p2title">Aplikasi Manajemen Laundry</h3>
               <p class="t-p2desc">Mengelola data pelanggan, paket laundry, transaksi, dan laporan.</p>
-              <a class="project-link t-askproj" href="#contact">Tanya proyek ↗</a>
+              <span class="project-link t-askproj">Klik untuk baca cerita ↗</span>
             </div>
           </article>
 
-          <article class="project-card">
-            <div class="pin"></div>
+          <!-- Proyek 3 -->
+          <article class="project-card" onclick="openProjectModal('Desain Profil Perusahaan', 'Canva • Design', 'https://images.unsplash.com/photo-1542744094-24638eff58bb?auto=format&fit=crop&w=600&q=80', 'Penyusunan materi presentasi dan profil visual perusahaan yang elegan dan profesional menggunakan platform Canva, disesuaikan dengan identitas visual merek untuk keperluan promosi dan portofolio bisnis.', 'Dalam proyek ini, fokus utamanya adalah menciptakan harmoni visual antara tipografi, pemilihan palet warna korporat, dan penyusunan informasi yang ringkas agar mudah dipahami oleh klien dalam waktu singkat.')">
+            <div class="pin-red-mini"></div>
             <div class="project-visual">
               <img src="https://images.unsplash.com/photo-1542744094-24638eff58bb?auto=format&fit=crop&w=600&q=80" alt="Desain Canva">
             </div>
-            <div class="project-body" style="padding: 0;">
+            <div>
               <span class="project-tag">Canva • Design</span>
               <h3 class="t-p3title">Desain Profil Perusahaan</h3>
               <p class="t-p3desc">Menyusun materi profil perusahaan dalam presentasi ringkas.</p>
-              <a class="project-link t-askproj" href="#contact">Tanya proyek ↗</a>
+              <span class="project-link t-askproj">Klik untuk baca cerita ↗</span>
             </div>
           </article>
         </div>
@@ -631,78 +1123,114 @@
     </div>
   </section>
 
-  <!-- SECTION 5: PENDIDIKAN & PKL -->
-  <section class="journal-section bg-brown-grid" id="education">
-    <div class="journal-book">
-      <svg class="sticker sticker-bear" viewBox="0 0 110 120">
-        <circle cx="32" cy="24" r="13" fill="#8f6b4e" stroke="#f7efe5" stroke-width="3"/>
-        <circle cx="78" cy="24" r="13" fill="#8f6b4e" stroke="#f7efe5" stroke-width="3"/>
-        <ellipse cx="55" cy="78" rx="28" ry="30" fill="#8f6b4e" stroke="#f7efe5" stroke-width="3"/>
-        <circle cx="55" cy="40" r="24" fill="#9c7658" stroke="#f7efe5" stroke-width="3"/>
-        <ellipse cx="55" cy="45" rx="11" ry="8" fill="#bfa084"/>
-        <circle cx="55" cy="42" r="3.5" fill="#2b1b10"/>
-        <circle cx="46" cy="34" r="3" fill="#1a100a"/>
-        <circle cx="64" cy="34" r="3" fill="#1a100a"/>
-        <ellipse cx="26" cy="72" rx="10" ry="15" transform="rotate(20 26 72)" fill="#8f6b4e" stroke="#f7efe5" stroke-width="2.5"/>
-        <ellipse cx="84" cy="72" rx="10" ry="15" transform="rotate(-20 84 72)" fill="#8f6b4e" stroke="#f7efe5" stroke-width="2.5"/>
-        <circle cx="36" cy="102" r="12" fill="#7d5c42" stroke="#f7efe5" stroke-width="2.5"/>
-        <circle cx="74" cy="102" r="12" fill="#7d5c42" stroke="#f7efe5" stroke-width="2.5"/>
-      </svg>
-
+  <!-- SECTION 5: PENDIDIKAN & PKL (Latar Cutting Mat Hijau Biasa) -->
+  <section class="zine-section bg-theme-craft" id="education">
+    <div class="zine-sheet">
       <div class="section-header">
-        <span class="section-num t-num5">05 — Perjalanan</span>
+        <span class="zine-pill-badge badge-orange t-num5">05 — EXPERIENCE & EDUCATION</span>
         <h2 class="section-title t-edutitle">Pendidikan & Pengalaman PKL</h2>
       </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="timeline-dot"></span>
-          <div class="timeline-card">
-            <small class="t-edusmall1">Pendidikan Saat Ini</small>
-            <h3>SMK Negeri Manonjaya — Rekayasa Perangkat Lunak</h3>
-            <p class="t-edudesc1">Mempelajari dasar pemrograman, pembuatan website, dan pengelolaan database.</p>
+
+      <!-- Container Notebook Buka-Tutup -->
+      <div class="notebook-container">
+        
+        <!-- Notebook Item 1: Pendidikan -->
+        <div class="notebook-card open" id="nbEdu" onclick="toggleNotebook('nbEdu')">
+          <div class="notebook-header">
+            <div class="notebook-title-area">
+              <small class="t-edusmall1">Pendidikan Saat Ini</small>
+              <h3 class="t-edutitle1">SMK Negeri Manonjaya — Rekayasa Perangkat Lunak</h3>
+            </div>
+            <div class="notebook-toggle-icon">+</div>
+          </div>
+          <div class="notebook-body">
+            <p class="notebook-story t-edudesc1">
+              Menempuh studi dijurusan Rekayasa Perangkat Lunak memberikan saya fondasi yang kuat dalam memahami logika berpikir komputasional, algoritma pemrograman, perancangan struktur basis data, hingga teknik pengembangan aplikasi berbasis web secara menyeluruh. Di sini, setiap tugas dan praktikum selalu memotivasi saya untuk terus bereksperimen dengan kode.
+            </p>
+            <div class="notebook-highlights">
+              <span class="highlight-chip">💻 Logika Pemrograman</span>
+              <span class="highlight-chip">🗄️ Database Management</span>
+              <span class="highlight-chip">⚡ Web Engineering</span>
+            </div>
           </div>
         </div>
 
-        <div class="timeline-item" style="margin-top: 18px;">
-          <span class="timeline-dot"></span>
-          <div class="timeline-card">
-            <small class="t-edusmall2">Praktik Kerja Lapangan (PKL)</small>
-            <h3>Access Media Tasikmalaya</h3>
-            <p class="t-edudesc2">
-              Mendapatkan pengalaman langsung di dunia kerja, meningkatkan disiplin, komunikasi, serta membuat desain profil perusahaan menggunakan Canva.
+        <!-- Notebook Item 2: PKL -->
+        <div class="notebook-card" id="nbPkl" onclick="toggleNotebook('nbPkl')">
+          <div class="notebook-header">
+            <div class="notebook-title-area">
+              <small class="t-edusmall2">Praktik Kerja Lapangan (PKL)</small>
+              <h3 class="t-edutitle2">Access Media Tasikmalaya</h3>
+            </div>
+            <div class="notebook-toggle-icon">+</div>
+          </div>
+          <div class="notebook-body">
+            <p class="notebook-story t-edudesc2">
+              Pengalaman PKL di Access Media membuka wawasan saya tentang bagaimana ritme kerja profesional yang sebenarnya di dunia industri teknologi. Di sini saya tidak hanya mengasah kedisiplinan dan komunikasi tim, tetapi juga dipercaya untuk merancang materi profil perusahaan serta mengeksplorasi pembuatan antarmuka digital yang komunikatif.
             </p>
+            <div class="notebook-highlights">
+              <span class="highlight-chip">🤝 Kolaborasi Tim Profesional</span>
+              <span class="highlight-chip">🎨 Corporate Design & Canva</span>
+              <span class="highlight-chip">⏱️ Etos Kerja Industri</span>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- SECTION 6: KONTAK -->
-  <section class="journal-section bg-cream-grid" id="contact">
-    <div class="journal-book">
-      <svg class="sticker sticker-butterfly" viewBox="0 0 110 90">
-        <path d="M55 45 C30 10, 5 15, 12 42 C18 60, 40 52, 55 45 Z" fill="#8c542b" stroke="#f7efe5" stroke-width="3"/>
-        <path d="M55 45 C80 10, 105 15, 98 42 C92 60, 70 52, 55 45 Z" fill="#8c542b" stroke="#f7efe5" stroke-width="3"/>
-        <path d="M55 48 C35 55, 22 78, 38 82 C50 85, 53 62, 55 48 Z" fill="#6b3e1e" stroke="#f7efe5" stroke-width="3"/>
-        <path d="M55 48 C75 55, 88 78, 72 82 C60 85, 57 62, 55 48 Z" fill="#6b3e1e" stroke="#f7efe5" stroke-width="3"/>
-        <ellipse cx="55" cy="48" rx="3.5" ry="20" fill="#2b180c"/>
-      </svg>
-
-      <div class="contact-box">
-        <h2 class="t-ctitle">Katakan Halo 💌</h2>
-        <p class="t-cdesc">Punya ide atau ingin ngobrol seputar proyek? Yuk terhubung lewat WhatsApp!</p>
-        <a class="btn btn-primary t-cbtn" href="https://wa.me/6283191552752?text=Halo%20Wulan%2C%20saya%20tertarik%20dengan%20portofolio%20kamu." target="_blank" rel="noopener noreferrer">
-          💬 Hubungi Saya di WhatsApp ↗
-        </a>
+  <!-- SECTION 6: KONTAK (Latar Grid Krim) -->
+  <section class="zine-section bg-theme-grid" id="contact">
+    <div class="zine-sheet">
+      <div class="envelope-wrapper">
+        <div class="letter-sheet">
+          <h2 class="t-ctitle">Let's contact! ✉️</h2>
+          <p class="t-cdesc">Punya ide atau ingin ngobrol seputar proyek? Yuk terhubung lewat WhatsApp!</p>
+          <a class="btn btn-primary t-cbtn" href="https://wa.me/6283191552752?text=Halo%20Wulan%2C%20saya%20tertarik%20dengan%20portofolio%20kamu." target="_blank" rel="noopener noreferrer">
+            💬 Hubungi Saya di WhatsApp ↗
+          </a>
+        </div>
       </div>
-      <footer style="text-align: center; margin-top: 30px; font-size: 0.78rem; color: var(--text-muted);">
-        <span class="t-footer">Dibuat dengan penuh cinta oleh</span> <strong>Wulan Maharani </strong> · <span id="year"></span>
+
+      <footer style="text-align: center; margin-top: 26px; font-size: 0.80rem; color: var(--text-muted);">
+        <span class="t-footer">Dibuat dengan penuh cinta oleh</span> <strong style="color: var(--bg-cutting-green);">Wulan Maharani</strong> · <span id="year"></span>
       </footer>
     </div>
   </section>
 
+  <!-- MODAL DETAIL PROYEK DENGAN CERITA -->
+  <div class="project-modal" id="projectModal" onclick="closeProjectModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModalBtn()">×</button>
+      <div class="modal-img">
+        <img id="modalImg" src="" alt="Detail Proyek">
+      </div>
+      <span class="project-tag" id="modalTag" style="margin-bottom: 8px;">Kategori</span>
+      <h3 class="modal-title" id="modalTitle">Judul Proyek</h3>
+      <p class="modal-desc" id="modalDesc">Deskripsi singkat proyek.</p>
+      
+      <div class="modal-story-box">
+        <h4 class="t-storytitle">📖 Cerita Dibalik Proyek Ini:</h4>
+        <p id="modalStory" style="margin: 0; font-size: 0.84rem; color: #33423a;">Cerita lengkap di balik pembuatan proyek.</p>
+      </div>
+
+      <a class="btn btn-primary" id="modalActionBtn" href="#contact" onclick="closeModalBtn()">Tanya Proyek Ini di WhatsApp ↗</a>
+    </div>
+  </div>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Efek Navbar Berubah Saat Di-scroll
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('mainHeader');
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -712,8 +1240,8 @@
       });
     }, { threshold: 0.15 });
 
-    document.querySelectorAll('.journal-book').forEach(book => {
-      observer.observe(book);
+    document.querySelectorAll('.zine-sheet').forEach(sheet => {
+      observer.observe(sheet);
     });
 
     const menuBtn = document.getElementById('menuBtn');
@@ -728,53 +1256,102 @@
       });
     });
 
-    // Toggle Bahasa & Slider Switch Animasi
+    /* Fungsi Buka-Tutup Notebook Scrapbook Pendidikan & PKL */
+    function toggleNotebook(cardId) {
+      const selectedCard = document.getElementById(cardId);
+      const isOpen = selectedCard.classList.contains('open');
+      
+      document.querySelectorAll('.notebook-card').forEach(card => {
+        card.classList.remove('open');
+      });
+
+      if (!isOpen) {
+        selectedCard.classList.add('open');
+      }
+    }
+
+    /* Fungsi Modal Detail Proyek dengan Cerita */
+    const modal = document.getElementById('projectModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalTag = document.getElementById('modalTag');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalStory = document.getElementById('modalStory');
+
+    function openProjectModal(title, tag, imgSrc, desc, story) {
+      modalTitle.textContent = title;
+      modalTag.textContent = tag;
+      modalImg.src = imgSrc;
+      modalDesc.textContent = desc;
+      modalStory.textContent = story;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModalBtn() {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeProjectModal(event) {
+      if (event.target === modal) {
+        closeModalBtn();
+      }
+    }
+
+    // Toggle Bahasa ID / EN
     let currentLang = 'id';
     const dict = {
       id: {
         home: "Beranda", about: "Tentang", skills: "Keahlian", projects: "Proyek", edu: "PKL", contact: "Kontak",
-        num1: "01 — Beranda", h1: "Halo, Saya", role: "Kreator Digital.",
+        num1: "01 — BERANDA", h1: "Halo, Saya", role: "Kreator Digital & Web Dev.",
         herocopy: "Saya pelajar Rekayasa Perangkat Lunak yang suka belajar membuat website, mencoba hal baru, dan mengubah ide sederhana menjadi karya digital yang menarik.",
-        btnproj: "Lihat Proyekku ↗", btnabout: "Kenalan Yuk ",
-        num2: "02 — Profil", abouttitle: "Tentang Saya",
+        btnproj: "Lihat Proyekku ↗", btnabout: "Kenalan Yuk",
+        num2: "02 — PROFIL", abouttitle: "Tentang Saya",
         aboutdesc1: "\"Saya adalah pelajar jurusan Rekayasa Perangkat Lunak (RPL) di SMK Negeri Manonjaya. Saya tertarik pada dunia teknologi, pengembangan website, dan desain digital.\"",
         aboutdesc2: "Saya senang mengeksplorasi ide, belajar dari proses, dan mengembangkan kemampuan melalui tugas sekolah maupun proyek pribadi dengan penuh tanggung jawab.",
         note1: "📌 Status: Pelajar SMK RPL", note2: "💡 Fokus: Web Development & Desain", note3: "📍 Berdomisili di: Manonjaya, Tasikmalaya",
-        num3: "03 — Keahlian", skillstitle: "Perkakas Andalan",
+        num3: "03 — SOFTWARES & SKILLS", skillstitle: "Perkakas Andalan",
         s1: "Membuat struktur halaman web & tampilan responsif.", s2: "Logika pemrograman backend dan pemrosesan data.", s3: "Penyimpanan dan manajemen database terstruktur.", s4: "Penyusunan materi presentasi & profil visual.",
         s5title: "Kerja Tim", s5: "Kolaborasi dan komunikasi yang baik dalam proyek.", s6title: "Kreativitas", s6: "Mencari ide segar dan solusi dalam perancangan.",
-        num4: "04 — Karya Digital", projtitle: "Arsip Proyek Pilihan",
+        num4: "04 — KARYA DIGITAL", projtitle: "Arsip Proyek Pilihan",
         p1title: "Redesain Website Access Media", p1desc: "Konsep ulang tampilan website dengan gaya modern dan navigasi jelas.",
         p2title: "Aplikasi Manajemen Laundry", p2desc: "Mengelola data pelanggan, paket laundry, transaksi, dan laporan.",
         p3title: "Desain Profil Perusahaan", p3desc: "Menyusun materi profil perusahaan dalam presentasi ringkas.",
-        askproj: "Tanya proyek ↗",
-        num5: "05 — Perjalanan", edutitle: "Pendidikan & Pengalaman PKL",
-        edusmall1: "Pendidikan Saat Ini", edudesc1: "Mempelajari dasar pemrograman, pembuatan website, dan pengelolaan database.",
-        edusmall2: "Praktik Kerja Lapangan (PKL)", edudesc2: "Mendapatkan pengalaman langsung di dunia kerja, meningkatkan disiplin, komunikasi, serta membuat desain profil perusahaan menggunakan Canva.",
-        ctitle: "Katakan Halo 💌", cdesc: "Punya ide atau ingin ngobrol seputar proyek? Yuk terhubung lewat WhatsApp!", cbtn: "💬 Hubungi Saya di WhatsApp ↗",
+        askproj: "Klik untuk baca cerita ↗",
+        num5: "05 — EXPERIENCE & EDUCATION", edutitle: "Pendidikan & Pengalaman PKL",
+        edusmall1: "Pendidikan Saat Ini", edutitle1: "SMK Negeri Manonjaya — Rekayasa Perangkat Lunak",
+        edudesc1: "Menempuh studi dijurusan Rekayasa Perangkat Lunak memberikan saya fondasi yang kuat dalam memahami logika berpikir komputasional, algoritma pemrograman, perancangan struktur basis data, hingga teknik pengembangan aplikasi berbasis web secara menyeluruh. Di sini, setiap tugas dan praktikum selalu memotivasi saya untuk terus bereksperimen dengan kode.",
+        edusmall2: "Praktik Kerja Lapangan (PKL)", edutitle2: "Access Media Tasikmalaya",
+        edudesc2: "Pengalaman PKL di Access Media membuka wawasan saya tentang bagaimana ritme kerja profesional yang sebenarnya di dunia industri teknologi. Di sini saya tidak hanya mengasah kedisiplinan dan komunikasi tim, tetapi juga dipercaya untuk merancang materi profil perusahaan serta mengeksplorasi pembuatan antarmuka digital yang komunikatif.",
+        storytitle: "📖 Cerita Dibalik Proyek Ini:",
+        ctitle: "Let's contact! ✉️", cdesc: "Punya ide atau ingin ngobrol seputar proyek? Yuk terhubung lewat WhatsApp!", cbtn: "💬 Hubungi Saya di WhatsApp ↗",
         footer: "Dibuat dengan penuh cinta oleh"
       },
       en: {
         home: "Home", about: "About", skills: "Skills", projects: "Projects", edu: "Internship", contact: "Contact",
-        num1: "01 — Home", h1: "Hello, I am", role: "Digital Creator.",
+        num1: "01 — HOME", h1: "Hello, I am", role: "Digital Creator & Web Dev.",
         herocopy: "I am a Software Engineering student who loves learning web development, trying new things, and turning simple ideas into attractive digital works.",
-        btnproj: "View Projects ↗", btnabout: "Get to Know ",
-        num2: "02 — Profile", abouttitle: "About Me",
+        btnproj: "View Projects ↗", btnabout: "Get to Know",
+        num2: "02 — PROFILE", abouttitle: "About Me",
         aboutdesc1: "\"I am a Software Engineering (RPL) student at SMK Negeri Manonjaya. I am interested in technology, web development, and digital design.\"",
         aboutdesc2: "I enjoy exploring ideas, learning from the process, and developing my skills through school assignments and personal projects with full responsibility.",
         note1: "📌 Status: Vocational RPL Student", note2: "💡 Focus: Web Dev & Design", note3: "📍 Based in: Manonjaya, Tasikmalaya",
-        num3: "03 — Skills", skillstitle: "Main Toolbox",
+        num3: "03 — SOFTWARES & SKILLS", skillstitle: "Main Toolbox",
         s1: "Creating web page structures & responsive layouts.", s2: "Backend programming logic and data processing.", s3: "Structured database storage and management.", s4: "Preparing presentation materials & visual profiles.",
         s5title: "Teamwork", s5: "Good collaboration and communication in projects.", s6title: "Creativity", s6: "Finding fresh ideas and solutions in design.",
-        num4: "04 — Digital Works", projtitle: "Selected Project Archive",
+        num4: "04 — DIGITAL WORKS", projtitle: "Selected Project Archive",
         p1title: "Access Media Website Redesign", p1desc: "Redesigning website appearance with modern style and clear navigation.",
         p2title: "Laundry Management App", p2desc: "Managing customer data, laundry packages, transactions, and reports.",
         p3title: "Company Profile Design", p3desc: "Structuring company profile materials in a concise presentation.",
-        askproj: "Inquire project ↗",
-        num5: "05 — Journey", edutitle: "Education & Internship",
-        edusmall1: "Current Education", edudesc1: "Learning programming fundamentals, web creation, and database management.",
-        edusmall2: "Field Internship (PKL)", edudesc2: "Gained direct workplace experience, improved discipline, communication, and designed company profiles using Canva.",
-        ctitle: "Say hello 💌", cdesc: "Have an idea or want to chat about a project? Let's connect via WhatsApp!", cbtn: "💬 Contact Me via WhatsApp ↗",
+        askproj: "Click to read story ↗",
+        num5: "05 — EXPERIENCE & EDUCATION", edutitle: "Education & Internship",
+        edusmall1: "Current Education", edutitle1: "SMK Negeri Manonjaya — Software Engineering",
+        edudesc1: "Studying Software Engineering gave me a strong foundation in computational thinking, programming algorithms, database design, and web development techniques. Here, every assignment motivates me to experiment more with code.",
+        edusmall2: "Field Internship (PKL)", edutitle2: "Access Media Tasikmalaya",
+        edudesc2: "My internship at Access Media opened my eyes to professional workflows in the tech industry. I honed my discipline, teamwork, communication, and designed corporate profiles.",
+        storytitle: "📖 Story Behind This Project:",
+        ctitle: "Let's contact! ✉️", cdesc: "Have an idea or want to chat about a project? Let's connect via WhatsApp!", cbtn: "💬 Contact Me via WhatsApp ↗",
         footer: "Made with love by"
       }
     };
@@ -843,10 +1420,13 @@
       document.querySelector('.t-num5').textContent = t.num5;
       document.querySelector('.t-edutitle').textContent = t.edutitle;
       document.querySelector('.t-edusmall1').textContent = t.edusmall1;
+      document.querySelector('.t-edutitle1').textContent = t.edutitle1;
       document.querySelector('.t-edudesc1').textContent = t.edudesc1;
       document.querySelector('.t-edusmall2').textContent = t.edusmall2;
+      document.querySelector('.t-edutitle2').textContent = t.edutitle2;
       document.querySelector('.t-edudesc2').textContent = t.edudesc2;
 
+      document.querySelector('.t-storytitle').textContent = t.storytitle;
       document.querySelector('.t-ctitle').textContent = t.ctitle;
       document.querySelector('.t-cdesc').textContent = t.cdesc;
       document.querySelector('.t-cbtn').textContent = t.cbtn;
